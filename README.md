@@ -1,0 +1,3 @@
+# Early_practice_test_js
+早期学习javascript的一些练习
+上传到github，纪念一下学习过程
