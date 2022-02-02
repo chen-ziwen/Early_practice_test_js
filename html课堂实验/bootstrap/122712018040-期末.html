@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>导航栏</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<style>
+		/** {
+			margin:0px;
+			padding: 0px;
+		}*/
+		.item,.row>.under-content {
+     	background-repeat: no-repeat;
+     	background-position: center center;
+      background-size: cover;
+     	min-height: 300px;
+     	margin-top: 80px;
+
+
+     }
+     
+     .item3 {
+     	background-repeat: no-repeat;
+     	background-position: center center;
+     	min-height: 300px;
+     	
+
+     }
+    .bg1 {
+    	
+       background-image: url(image/salesforecast.jpg);
+    }
+    .bg2 {
+    	background-image: url(image/recommendation.jpg);
+    }
+    .bg3 {
+    	background-image: url(image/financial.jpg);
+    }
+    .bg4 {
+      background-image: url(image/gov.jpg);
+    }
+    .bg6 {
+      background-image: url(image/medical.jpg);
+    }
+    .bg7 {
+      background-image: url(image/antiterrorism.jpg);
+    }
+     .bg8 {
+      background-image: url(image/peng.jpg);
+    }
+     .bg9 {
+      background-image: url(image/shengchao.jpg);
+    }
+
+    .bg5 {
+   	background-image: url(image/header-bg.jpg);
+   	width: 100%;
+   	height: 800px;
+   	background-size: 100% 800px;
+    
+   }
+
+   .bg1,.bg2,.bg3,.bg4,.bg6,.bg7{
+   	
+    margin: 10px 10px;
+   
+   }
+   .bg8,.bg9 {
+    border-radius: 100px;
+   }
+  
+   .head-content { 
+   	position: fixed;
+   	background-color:#222222;
+   	width:100%
+   }
+    .under-content {
+
+   	 height: 40px;
+   	 color: black;
+   	 text-align: center;
+   	 padding-right: 10px;
+   	 
+   }
+    .under-content>a>p {
+    	line-height: 40px;
+    	 background-color: #e2e2e2;
+    	 margin-top: 60px;
+    }
+   .bg5>h2 {
+   	font:700 60px "黑体";
+   	text-align:center;
+   	line-height: 800px;
+   }
+   .bg5>p {
+    font:400 25px "宋体";
+    text-align:center;
+    position: relative;
+    top: 350px;
+   }
+
+   .btn1 {
+   	position: relative;
+   	left: 47%;
+   	bottom: 350px;
+    padding: 20px 45px;
+   
+    color:white;
+    background-color: #fed136;
+   }
+  .konde_div {
+  
+  	height: 900px;
+  	background-color: #eaeaea;
+  }
+   .navbar-default .collapse .nav>li a:hover {
+   	background: red;
+   	color: green;
+   }
+   .beijing {
+   	height: 500px;
+   	background-color: black;
+   }
+   .pde {
+   	line-height: 100px;
+   	text-align:center;
+   	font-weight:700;
+   	font-size: 25px;
+   	
+  
+   }
+   
+   .hangye h1,.hangye p {
+    text-align:center;
+
+   }
+   .baisede {
+    background-color: white;
+   }
+   .col-sm-6 h3,.col-sm-6 p {
+    margin-left: 40px;
+   }
+	</style>
+</head>
+         <!-- 滚动效果 -->
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+	<div style="background-color: white">
+	<nav class="navbar navbar-default ">
+		<div class="container head-content">
+
+        <div class="collapse navbar-collapse ">
+        	
+        	<div class="navbar-header ">
+         <a class="navbar-brand " href="#one" style="color:#fed136;">所有数据</a>
+            </div>
+        <ul class="nav navbar-nav navbar-right">
+        	<li><a href="#two">产品优势</a></li>
+        	<li><a href="#three">解决方案</a></li>
+          <li><a href="#four">关于我们</a></li>
+          <li><a href="#five">联系我们</a></li>
+        	
+        	
+        </ul>
+
+   </div>
+</div>
+
+  </nav>
+
+
+        <div id="one" >
+        <div class="container bg5">
+          <p style="color: white">洞察数据内部规律，精准预测未来趋势</p>
+        <h2 style="color: white">深度的数据分析与准确的数据预测</h2>
+        <button class="btn1">了解更多</button>
+        </div>
+        </div>
+
+    
+        <!-- 跳转的内容 -->
+        <div id="two" class="container ">
+        <div class="container-fuild ">
+          <!-- 行业板块 -->
+        
+		
+       <div class="container">
+      <div class="hangye">
+        <h1>行业解决方案</h1>
+        <p>数据深度分析未来市场预判</p>
+        <div class="row">
+        <div class="col-sm-4 item bg1"></div>
+        <div class="col-sm-4 item bg2"></div>
+        <div class="col-sm-4 item bg3"></div>
+        </div>
+      
+       
+
+        
+		<div class="row">
+
+        <div class="col-sm-4 under-content ">
+          <h4>销售预测</h4>
+          <p>电子商务网站，传统零售商，制造业</p></div>
+        <div class="col-sm-4 under-content "><h4>深度推荐</h4>
+          <p>电子商务网站，传统零售商</p></div>
+        <div class="col-sm-4 under-content "><h4>分布式数据仓库，用户画像</h4>
+          <p>金融业</p></div>
+        </div>
+        
+       
+
+       
+		<div class="row">
+        <div class="col-sm-4 item3 bg4"></div>
+        <div class="col-sm-4 item3 bg6"></div>
+        <div class="col-sm-4 item3 bg7"></div>
+        </div>
+         </div>
+        </div>
+        
+         <div class="container">
+		<div class="row">
+       
+        <div class="col-sm-4 under-content">
+        <h4>经济运行态势监控、分析与预测</h4>
+        <p>电子商务网站，传统零售商，制造业</p>
+        </div>
+        
+        <div class="col-sm-4 under-content "><h4>医疗诊断记录智能分析</h4>
+          <p>医疗</p></div>
+
+        <div class="col-sm-4 under-content "><h4>犯罪份子画像、恐怖行动预知</h4>
+          <p>公安系统</p></div>
+
+        </div>
+        </div> 
+	  </div>
+  </div>
+
+
+
+
+
+
+<div id="three" class="konde_div">
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 item3 bg8"></div>
+        <div class="col-sm-6 item3 bg9"></div>
+       
+        </div>
+        <div class="row">
+        <div class="col-sm-6 ">
+          <h3>颜鹏 创始人 CEO</h3>
+          <p>123131321</p>
+        </div>
+        <div class="col-sm-6 ">
+          <h3>丁圣超 创始人 CTO</h3>
+          <p></p>
+        </div>
+       
+        </div>
+        </div>
+</div>
+
+  
+</div>
+ <br>
+ <br>
+<div id="four" class="container  beijing">
+        <h1 class="text-center" style="color:white " >联系我们</h1>
+        <form>
+           
+              <br>
+              <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-5">
+                  <div class="form-group">
+                    <label for="exampleInputEmail"></label>
+                    <input type="email" class="form-control" id="exampleInputEmail" placeholder="您的姓名">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputName"></label>
+                    <input type="name" class="form-control" id="exampleInputName" placeholder="您的联系方式：邮箱">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputTel"></label>
+                    <input type="tel" class="form-control" id="exampleInputTel" placeholder="你的电话">
+                  </div>
+                </div>
+                <div class="col-md-5">
+                    <label for="exampleInputTel"></label>
+                    <textarea type="PS" class="form-control" id="exampleInputPS" placeholder="您的意见或建议" rows="8"></textarea>
+                </div>
+                <div class="col-md-1"></div>
+              </div>
+              <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-1">
+                  <button type="submit" class="btn btn-default" style="background-color:#fed136" style="align:center">Submit</button>
+                </div>
+                <div class="col-md-10"></div>
+              </div>
+            </div>
+        </form>
+    </div>
+
+<div id="five" class="container "style="height:100px; width: 100%;  background-color:white" style="font-size:400" >
+    <p class="pde" style="line-height: 100px;">Copyright@2016北京所问数据科技有限公司（askingdata.com）京ICP备16004320号</p>
+	</div>
+   </div>
+	<script src="js/jquery-1.12.4.js"></script>
+	<script src='js/bootstrap.min.js'></script>
+</body>
+</html>

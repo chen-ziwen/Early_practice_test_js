@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浮动测试</title>
+</head>
+    <style>
+
+        /*浮动一定要先设置一个父盒子来约束浮动
+        然后子元素在设置浮动
+        
+        当设置的css样式被划掉时，一般是权重的问题，调整一个权重就可以了
+        
+        */
+
+        /*
+        
+        */
+
+        ::after 这个伪元素的作用就是在盒子的后面添加一个行内元素，必须在里面加上content，
+        如果需要after变成块元素，就加上display：block。
+
+        ::before 跟after同理
+         
+        去除浮动
+         .clearfix::after {
+             content: "";
+             display: block;  /* 这是个固定的格式 */
+             clear: both;
+             height: 0;
+             visibility: hidden;
+         }
+
+         .clearfix::after { /*IE6,7专有*/
+             *zoom:1;
+         }
+         
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+        li {
+            list-style: none;
+        }
+       .box1 {
+           margin: 0 auto;
+           margin-top: 20px;
+           width: 1000px;
+           height: 500px;
+           background-color: rosybrown;
+           
+       }
+       .box2 {
+           float: left;
+           width: 200px;
+           height: 500px;
+           background-color: royalblue;
+       }
+       .box3 {
+            float: left;
+            width: 800px;
+            height: 500px;
+            background-color: white;
+       }
+        .ul1 {
+            float: right;
+            width: 785px;
+            height: 500px;
+            background-color: white;
+        }
+        .ul1 > li {
+           margin-right: 15px;
+           float: left;
+           width: 185px;
+           height:242.5px;
+           background-color: slateblue;
+           margin-bottom: 15px;
+
+        }
+        .ul1>li:nth-of-type(4), 
+        .ul1>li:nth-of-type(8)
+        {
+            margin-right: 0px;
+        }
+        .ul1>li:nth-of-type(5),
+        .ul1>li:nth-of-type(6),
+        .ul1>li:nth-of-type(7), 
+        .ul1>li:nth-of-type(8) 
+        {
+          margin-bottom: 0px;
+        }
+    </style>
+<body>
+    <div class="box1">
+        <div class="box2"></div>
+        <div class="box3">
+          <ul class="ul1">
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+                <li>7</li>
+                <li>8</li>
+          </ul>
+
+        </div>
+    </div>
+</body>
+</html>

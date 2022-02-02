@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cssText直接设置所有样式</title>
+</head>
+
+<body>
+    <script>
+        window.onload = function () {
+            let div = document.createElement("div")
+            let bodys = document.querySelector("body")
+            div.setAttribute("id", "box");
+            bodys.appendChild(div);
+            let box = document.getElementById("box");
+            //可以直接用这个属性一次性设置css全部的样式
+            div.style.cssText = "width:100px;height:100px;background-color:red;border:5px solid blue";
+            //可以用这个方法获取元素的六个属性，属性如下
+            console.log(div.getBoundingClientRect()); 
+            //返回一个DOMRect对象，包含六个属性。课本p476页
+            /*
+            bottom: 108
+            height: 100
+            left: 8
+            right: 108
+            top: 8
+            width: 100
+            x: 8
+            y: 8
+           */
+        }
+    </script>
+</body>
+
+</html>

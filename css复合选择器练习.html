@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>后代选择器练习</title>
+	<style>
+     ol li {
+     	color: pink;
+     }
+     ul {
+     	list-style: none;
+     }
+     ul li a {
+     	text-decoration: none;
+     	color: green;
+     }
+     .vary li a {
+     	color: gray;
+     	text-decoration: none;
+     }
+	</style>
+</head>
+<body> 
+
+	<!-- 后代选择器用法练习 -->
+	<!-- 要求把ol里的文字颜色改为粉色 -->
+	元素1 元素2 {声明} 选择元素1里面的所有元素2 元素2可以是儿子也可以是孙子
+   <ul>
+   	<li>你好握手</li>
+   	<li>你好握手</li>
+   	<li>你好握手</li>
+   	<li>你好握手</li>
+   	<li><a href="">我是孙子</a>你好握手</li>
+   </ul>
+
+   <ol class="vary">
+   	<li>关系不好不想握手</li>
+   	<li>关系不好不想握手</li>
+   	<li>关系不好不想握手</li>
+   	<li>关系不好不想握手</li>
+   	<li><a href="">我无敌你随意</a>关系不好不想握手</li>
+   </ol>
+
+   <ol>
+   	<li>关系不好不想握手</li>
+   	<li>关系不好不想握手</li>
+   	<li>关系不好不想握手</li>
+   	<li><a href="">你在想屁吃</a>关系不好不想握手</li>
+   	<li>关系不好不想握手</li>
+   </ol>
+</body>
+</html>

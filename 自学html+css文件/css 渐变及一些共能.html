@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>渐变</title>
+    <style>
+        .div1,
+        .div2,
+        .div3,
+        .div4 {
+            margin: 0 10px;
+        }
+
+        @keyframes mymove {
+            from {
+                top: 0px;
+            }
+
+            to {
+                top: 200px;
+            }
+        }
+
+        .div1 {
+            float: left;
+            width: 100px;
+            height: 100px;
+            background-color: #bfa;
+
+        }
+
+        .change {
+            background-image: linear-gradient(-145deg, #bfa, #ffd4ff, #4afd);
+            border: 5px solid black;
+            font: italic 700 40px "黑体" ;
+            color: gold;
+        }
+
+        .div2 {
+            float: left;
+            width: 130px;
+            height: 130px;
+            background-color: rgb(134, 148, 131);
+
+        }
+
+        .div3 {
+            float: left;
+            width: 200px;
+            height: 200px;
+            background-color: rgb(130, 51, 221);
+        }
+
+        .div4 {
+            float: left;
+            width: 250px;
+            height: 250px;
+            background-color: rgba(255, 170, 174, 0.5);
+        }
+    </style>
+
+</head>
+
+<body>
+    <script>
+        window.onload = function () {
+            let div1 = document.querySelector(".div1");
+            let div2 = document.querySelector(".div2");
+            let div3 = document.querySelector(".div3");
+            let div4 = document.querySelector(".div4");
+            
+            // 加类名
+            // function addClass(obj, cn) {
+            //     obj.className += " " + cn
+            // }
+            // //去类名
+            // function removeClass(obj,cn) {
+            //     let a = RegExp("\\b"+cn+"\\b");
+            //     let b = a.test(obj.className);
+            //     if(b) {
+            //         obj.className = obj.className.replace(cn,"");              }
+            // }
+
+
+            // //这个是我自己实现的方法，效果与系统的一致
+            // function total(obj,cn) {
+            //     let a = RegExp("\\b"+cn+"\\b");
+            //     if(a.test(obj.className)){
+            //         obj.className = obj.className.replace(cn,"");  
+            //     }
+            //     else {
+            //         obj.className += " " +cn;
+            //     } 
+                
+            // }
+
+            //这个js自带的方法 直接用很方便。
+            function total2 (obj,cn) {
+                if(obj.classList.contains(cn)){
+                    obj.classList.remove(cn);  
+                }
+                else {
+                    obj.classList.add(cn);
+                } 
+                
+            }
+           
+            //js自带的方法已经实现了这些功能
+            div1.onclick = function () {
+
+               total2(div1,"change") 
+            //    div1.classList.toggle("change")//课本的449 自带这些方法
+            }
+            div2.onclick = function () {
+
+                total2(div2, "change")
+                // div2.classList.toggle("change")
+            }
+            div3.onclick = function () {
+
+                total2(div3, "change")
+                // div3.classList.toggle("change")
+            }
+            div4.onclick = function () {
+
+                total2(div4, "change")
+                // 
+            }
+
+
+        }
+    </script>
+    <div class="div1">我是div1</div>
+    <div class="div2">我是div2</div>
+    <div class="div3">我是div3</div>
+    <div class="div4">我是div4</div>
+</body>
+
+</html>

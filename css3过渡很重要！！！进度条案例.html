@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css3过渡很重要！！！</title>
+</head>
+<style>
+    .box1{
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        /* background-image: radial-gradient(#bfa ,blue); */
+        /* transition 四个属性： 变化的属性 变化的时间 变化的曲线 何时开始变化  后两个可以不写*/
+        /* 想要多个属性都变化，写个all */
+
+        /* 谁做过渡给谁加 */
+        transition: all 3s ;
+    }
+    .box1:hover {
+        width: 200px;
+        background-color: blue;
+        /*background-image: radial-gradient(red ,yellow);不能变*/
+    }
+    .box2 {
+        padding: 1px;
+        margin: auto;
+        width: 200px;
+        height: 15px;
+        /* box-sizing: border-box; */
+        border: red solid 1px;
+        border-radius: 9px;
+       
+    
+    }
+    .box2son {
+        width: 0px;
+        height: 100%;
+        background-color: red;
+        border-radius: 9px;
+        transition: width 2s;
+    }
+    .box2:hover .box2son {
+        /* 当鼠标移入box2时,box2son的width开始发生变化 */
+        width: 100%;
+    }
+    .box3 {
+        margin-top: 50px;
+        margin-left:50xp;
+        width: 100px;
+        height: 100px;
+        border-radius: 50px;
+        background-color: red;
+       
+        /* border: 50px solid transparent; */
+        transition: all 3s;
+    }
+    .box3:hover {
+        border: 50px solid blue;
+    }
+</style>
+<body>
+    <div class="box1"></div>
+    <div class="box2"><div class="box2son"></div></div>
+    <div class="box3"></div>
+</body>
+</html>

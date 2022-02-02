@@ -1,0 +1,78 @@
+*{
+	margin: 0px;
+    padding: 0px;
+}
+a {
+	text-decoration: none;
+
+}
+a:link {
+	color: black;
+}
+
+.tophead .tupian img
+{
+	padding-top: 15px;
+	width: 133px;
+	height: 82.02px;
+	float: left;
+	position: relative;
+	left: 50px;
+   
+}
+
+.tophead ul.nav {
+	border-right: 1px solid #eeeeee;
+	padding-left: 200px;
+	clear: left;
+	position: relative;
+	top: -80px;
+	
+}
+.tophead ul.diyi li {
+ list-style: none;
+ float: left;
+ border-left: 1px solid #eee;
+ border-top: 3px solid #eee;
+ padding: 0 33px 0 21px;
+}
+.second .secondone{
+	clear: left;
+	width: 1400px;
+	height: 433px;
+	background-color: blue;
+	color:white;
+
+}
+.secondone p,.secondone h2,.secondone h3
+{
+	position: relative;
+	top: 50px;
+	left:70px;
+}
+.secondone h2 {
+	font: normal 400 60px "微软雅黑";
+	line-height: 100px;
+}
+.secondone h3 {
+	line-height: 50px;
+	font-weight: normal;
+
+}
+.second .download {
+	width: 257px;
+	height: 75px;
+	background-color: lightgreen;
+	border:1px solid black;
+	position: relative;
+	left: 70px;
+	top:-160px;
+}
+.second .download a {
+	font: normal 700 20px "微软雅黑";
+	position: relative;
+	left: 80px;
+	top: 20px;
+
+}
+

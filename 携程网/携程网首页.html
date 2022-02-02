@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>携程网首页</title>
+</head>
+<style>
+    /* 初始化布局 */
+    * {
+        margin: 0px;
+        padding: 0px;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    li {
+        list-style: none;
+    }
+   /* 整体div */
+    .nav {
+        width: 850px;
+        max-height: auto;
+        margin: 0 auto;
+        
+        
+
+    }
+   /* 搜索框 */
+    .serch {
+        display: flex;
+        height: 50px;
+        flex-wrap: wrap;
+
+    }
+   /* 第一行头像 */
+    .user {
+        position: relative;
+        left: 10px;
+        display: block;
+        width: 50px;
+        height: 50px;
+        text-decoration: none;
+    }
+    /* 搜索框占比，圆角 */
+    .serch input {
+        flex-grow: 1;
+        height: 40px;
+        border-radius: 10px;
+    }
+    /* 往第一行的a中添加图片 */
+    .user::before {
+        display: block;
+        content: "";
+        width: 23px;
+        height: 23px;
+        background-image: url(images/sprite.png);
+        background-repeat: no-repeat;
+        background-size: 104px 328px;
+        background-position: -58px -193px;
+
+    }
+     
+    .lunbotu {
+        background: url(upload/focus.jpg) no-repeat;
+        background-size: 100% 150px;
+        min-width: 100%;
+        height: 150px;
+
+    }
+
+    .threerow {
+        width: 100%;
+        height: 120px;
+        background-color: white;
+    }
+
+    .fourrow,
+    .fiverow,
+    .sixrow {
+        display: flex;
+        width: 100%;
+        height: 150px;
+        margin-bottom: 10px;
+    }
+
+    .fourrow {
+        background-image: linear-gradient(#F87250, #f8d510);
+    }
+
+    .fiverow {
+        background-image: linear-gradient(#4B9CEC, #0bc7ce)
+    }
+
+    .sixrow {
+        background-image: linear-gradient(#41C694, rgb(15, 219, 134))
+    }
+
+    .threerow ul {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 10px;
+    }
+
+    .threerow ul li:nth-child(1)::before {
+        display: block;
+        content: "";
+        background: no-repeat url(images/localnav_bg.png);
+        width: 67px;
+        height: 65px;
+    }
+
+    .threerow ul li:nth-child(2)::before {
+        display: block;
+        content: "";
+        background: no-repeat url(images/localnav_bg.png);
+        width: 67px;
+        height: 65px;
+        background-position: -0.5px -63.6px;
+    }
+
+    .threerow ul li:nth-child(3)::before {
+        display: block;
+        content: "";
+        background: no-repeat url(images/localnav_bg.png);
+        width: 67px;
+        height: 65px;
+        background-position: -0.5px -128px;
+    }
+
+    .threerow ul li:nth-child(4)::before {
+        display: block;
+        content: "";
+        background: no-repeat url(images/localnav_bg.png);
+        width: 67px;
+        height: 65px;
+        background-position: -0.5px -191.7px;
+    }
+
+    .threerow ul li:nth-child(5)::before {
+        display: block;
+        content: "";
+        background: no-repeat url(images/localnav_bg.png);
+        width: 67px;
+        height: 65px;
+        background-position: -0.5px -255.6px;
+
+    }
+
+    .fourrow p,
+    .fiverow p,
+    .sixrow p {
+        flex: 1;
+        border: 1px solid white;
+    }
+
+    .fourrow p:nth-child(1),
+    .fiverow p:nth-child(1),
+    .sixrow p:nth-child(1) {
+        text-align: center;
+        color: white;
+        line-height: 30px;
+        font-size: 25px;
+
+
+    }
+
+    .fourrow p:nth-child(2),
+    .fiverow p:nth-child(2),
+    .sixrow p:nth-child(2) {
+        display: flex;
+        flex-direction: column;
+
+
+    }
+
+    .fourrow p:nth-child(3),
+    .fiverow p:nth-child(3),
+    .sixrow p:nth-child(3) {
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    .fourrow span,
+    .fiverow span,
+    .sixrow span {
+
+        border: 1px solid white;
+        line-height: 74px;
+        text-align: center;
+        color: white;
+
+    }
+
+    .fourrow p:nth-child(1)::after {
+        content: "";
+        display: block;
+        background: no-repeat url(images/hotel.png);
+        width: 246px;
+        height: 130px;
+        background-size: 246px 100px;
+        background-position: 0 22px;
+
+
+    }
+
+    .fiverow p:nth-child(1)::after {
+        content: "";
+        display: block;
+        background: no-repeat url(images/hotel.png);
+        width: 246px;
+        height: 130px;
+        background-size: 246px 100px;
+        background-position: 0 25px;
+
+
+    }
+
+    .sixrow p:nth-child(1)::after {
+        content: "";
+        display: block;
+        background: no-repeat url(images/hotel.png);
+        width: 246px;
+        height: 130px;
+        background-size: 246px 100px;
+        background-position: 0 22px;
+
+    }
+
+    .sevenrow {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        height: 150px;
+        background-color: turquoise;
+        /* align-content: space-around; */
+        justify-content: space-around;
+
+
+    }
+
+    .sevenrow span {
+        text-align: center;
+        font-size: 17px;
+        font-weight: 700;
+        color: white;
+        width: 15%;
+        height: 30px;
+        /* background-color: tomato; */
+        border: 1px solid salmon;
+        border-radius: 25%;
+        margin: 10px;
+    }
+
+    .eightrow {
+        display: flex;
+        width: 100%;
+        height: 50px;
+        /* background-color: gold; */
+        justify-content: space-between;
+        margin-top: 10px;
+    }
+
+    .eightrow span:nth-child(1) {
+
+        color: rgb(248, 213, 15);
+        font: italic 700 25px "黑体";
+    }
+
+    .eightrow span:nth-child(2) {
+        width: 120px;
+        height: 25px;
+        background-image: linear-gradient(-90deg, rgb(199, 16, 153), #dad);
+        color: black;
+        font: 400 16px "黑体";
+    }
+
+    b {
+        font-size: 20px;
+        font-weight: 700;
+        color: whitesmoke;
+
+    }
+
+    .nightrow {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 600px;
+        /* border: 1px solid white; */
+        /* background-color: gold; */
+        justify-content: space-between;
+        background-color: #dad;
+    }
+
+    .nightrow div:nth-child(1) {
+        flex: 2;
+        display: flex;
+       
+    }
+
+    .nightrow div:nth-child(2) {
+        flex: 1.5;
+        display: flex;
+       
+    }
+
+    .nightrow div:nth-child(3) {
+        flex: 1.5;
+        display: flex;
+        
+    }
+    .s1,.s2,.s3,.s4,.s5,.s6 {
+        width: 100%;
+        height: 100%;
+        border: 1px solid black;
+        
+    }
+    .s1 {
+        
+        background:url(upload/pic1.jpg) no-repeat;
+        background-size:100% 240px;
+    }
+    .s2 {
+        background:url(upload/pic2.jpg) no-repeat;
+        background-size: 100% 240px;
+    }
+    .s3 {
+        background:url(upload/pic3.jpg) no-repeat;
+        background-size: 100% 180px;
+    }
+    .s4 {
+        background:url(upload/pic4.jpg) no-repeat;
+        background-size: 100% 180px;
+    }
+    .s5 {
+        background:url(upload/pic5.jpg) no-repeat;
+        background-size: 100% 180px;
+    }
+    .s6 {
+        background:url(upload/pic6.jpg) no-repeat;
+        background-size: 100% 180px;
+    }
+    .tenrow {
+        
+        text-align: center;
+        width: 100%;
+        height: 150px;
+        color: gold;
+        font: 700 30px "黑体";
+        line-height: 150px;
+        background-image: linear-gradient(20deg,rgb(13, 16, 223),#bfa,#dad,red);
+      }
+</style>
+
+<body>
+    <div class="nav">
+        <div class="serch">
+            <input type="text" name="" value="搜索:目的地/酒店/景点/航班号">
+            <a href="#" class="user">我的</a>
+            <div class="lunbotu"></div>
+            <div class="threerow">
+                <ul>
+                    <li>景点玩乐</li>
+                    <li>周边游</li>
+                    <li>美食林</li>
+                    <li>一日游</li>
+                    <li>当地攻略</li>
+                </ul>
+            </div>
+            <div class="fourrow">
+                <p>酒店</p>
+                <p>
+                    <span>海外酒店</span>
+                    <span>特价酒店</span>
+                </p>
+                <p>
+                    <span>团购</span>
+                    <span>民宿.客栈</span>
+                </p>
+
+            </div>
+            <div class="fiverow">
+                <p>机票</p>
+                <p>
+                    <span>火车票</span>
+                    <span>特价机票</span>
+                </p>
+                <p>
+                    <span>汽车票船票</span>
+                    <span>专车.租车</span>
+                </p>
+            </div>
+            <div class="sixrow">
+                <p>旅游</p>
+                <p>
+                    <span>门票</span>
+                    <span>目的地攻略</span>
+                </p>
+                <p>
+                    <span>邮轮旅游</span>
+                    <span>定制旅行</span>
+                </p>
+            </div>
+            <div class="sevenrow">
+                <span>WiFi电话卡</span>
+                <span>保险.签证</span>
+                <span>外币兑换</span>
+                <span>购物</span>
+                <span>当地向导</span>
+                <span>自由行</span>
+                <span>境外玩乐</span>
+                <span>礼品卡</span>
+                <span>信用卡</span>
+                <span>更多</span>
+            </div>
+
+            <div class="eightrow">
+                <span>热门活动</span>
+                <span>获取更多福利&nbsp;<b>></b></span>
+            </div>
+
+            <div class="nightrow">
+                <div>
+                    <span class="s1"></span>
+                    <span class="s2"></span>
+                </div>
+
+                <div>
+                    <span class="s3"></span>
+                    <span class="s4"></span>
+                </div>
+
+                <div>
+                    <span class="s5"></span>
+                    <span class="s6"></span>
+                </div>
+            </div>
+            <div class="tenrow">
+               2021.8.20 学习记录。
+            </div>
+
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>

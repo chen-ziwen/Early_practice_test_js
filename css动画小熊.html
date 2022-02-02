@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css动画小熊</title>
+</head>
+<style> 
+     .back {
+         width: auto;
+         height: 400px;
+         background-color: cornflowerblue;
+     }
+     .bear {
+         transform: translateY(100px);
+         width: 200px;
+         height: 100px;
+         overflow: hidden;
+         animation: move2 2s linear forwards;
+     }
+     img {
+         animation: move 0.5s steps(8) infinite; /*steps 逐步跳动*/
+     }
+     @keyframes move {
+        100% {
+            transform: translateX(-1600px);
+        }
+     }
+     @keyframes move2 {
+        100% {
+            transform: translate(400px,100px);
+           
+        } 
+     }
+</style>
+<body>
+     <div class="back">
+         <div class="bear"><img src="bear.png" alt=""></div>
+     </div>  
+</body>
+</html>
