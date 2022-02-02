@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>贪吃蛇初步实现</title>
+</head>
+<style>
+    #bag {
+        width: 600px;
+        height: 600px;
+        background-color: #bfa;
+        position: absolute;
+        left: 50px;
+        top: 50px;
+    }
+
+    #move {
+        width: 20px;
+        height: 20px;
+        background-color: coral;
+        position: absolute;
+        left: 50px;
+        top: 50px;
+        border-radius: 50%;
+    }
+</style>
+
+<body>
+    <script>
+        window.onload = function () {
+
+            let left = false;
+            let right = false;
+            let top = false;
+            let bottom = false;
+
+
+            let move = document.getElementById("move");
+            let bag = document.getElementById("bag");
+
+
+            //a = 65 ;w =87 ; s =83; d =68;
+
+
+
+            // 按键按下 move 开始移动
+            document.onkeydown = function (event) {
+                event = event || window.event;
+
+                if (event.shiftKey) {
+                    speed = 4;
+                } else {
+                    speed = 2;
+                }
+
+                switch (event.keyCode) {
+                    case 65:
+                        left = true;
+                        break;
+
+                    case 68:
+                        right = true;
+                        break;
+
+                    case 87:
+                        top = true
+                        break;
+
+                    case 83:
+                        bottom = true;
+                        break;
+
+
+                }
+
+
+
+            };
+
+            let a = setInterval(function () {
+
+
+
+                if (left) {
+                    move.style.left = move.offsetLeft - speed + "px";
+                }
+
+
+
+
+                if (right) {
+                    move.style.left = move.offsetLeft + speed + "px";
+                }
+
+
+                if (top) {
+                    move.style.top = move.offsetTop - speed + "px";
+                }
+
+
+
+                if (bottom) {
+                    move.style.top = move.offsetTop + speed + "px";
+                }
+
+                if (move.offsetLeft < 0 || move.offsetTop < 0 || (580 - move.offsetTop) < 0 || (580 - move
+                        .offsetLeft) < 0) {
+
+                    let panduan = confirm("游戏结束,是否重新开始？")
+                    clearInterval(a);
+
+                    function total() {
+                        move.style.left = 50 + "px";
+                        move.style.top = 50 + "px";
+
+
+                    }
+                    if (panduan == true) {
+                        return total();
+
+                    } else {
+
+                        alert("游戏结束");
+                    }
+
+                }
+            }, 5)
+
+
+
+            document.onkeyup = function (event) {
+                event = event || window.event;
+
+                switch (event.keyCode) {
+
+                    case 65:
+
+                        left = false;
+
+                        break;
+
+                    case 68:
+
+                        right = false;
+
+                        break;
+
+                    case 87:
+
+                        top = false;
+
+                        break;
+
+                    case 83:
+
+                        bottom = false;
+
+                        break;
+
+
+                };
+
+
+
+
+
+                ;
+            }
+
+        };
+    </script>
+
+    <div id="bag">
+        <p style="position: absolute; top: 0px;">按下shift 速度加倍</p>
+        <div id="move"></div>
+    </div>
+</body>
+
+</html>

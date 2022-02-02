@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>随机点名</title>
+</head>
+<style>
+    #box {
+        font: 700 25px "黑体";
+        background-image: linear-gradient(25deg,#bfa,pink,blue);
+        color: #ffff;
+        margin: 0 auto;
+        width: 500px;
+        height: 500px;
+        text-align: center;
+    }
+
+    p:nth-of-type(1) {
+        position: relative;
+        top: 260px;
+        font-size: 25px;
+
+    }
+
+    #p1 {
+        font: 700 50px "黑体";
+    }
+
+    button {
+        position: relative;
+        top: 40px;
+        width: 100px;
+        height: 40px;
+        border-radius: 20px;
+        
+    }
+</style>
+
+<body>
+    <script>
+        window.onload = function () {
+            
+            let btn = document.querySelector("button");
+            let p1 = document.getElementById("p1"); //id可以直接用，但不推荐，有的不兼容
+            let add = document.getElementById("add");
+            let del = document.getElementById("del");
+           
+
+            // 实现随机点名功能
+            let array = ["陈子文", "叶春阳", "王允志", "李龙", "李艺辉", "林彝亮"];
+            let a = 0;
+            let b = 1;
+             
+            //查找只能元素的索引
+            
+            btn.addEventListener("click", () => {
+                // clearInterval(a);
+                b++;
+                if (b % 2 == 0) {
+                    a = setInterval(() => {
+                        let i = Math.floor(Math.random() * array.length);
+                        p1.innerHTML = array[i]
+                    }, 250)
+                    btn.innerHTML = "结束";
+                } else {
+                    clearInterval(a);
+                    btn.innerHTML = "开始";
+                    b=1; //重新给b赋值为1，不然b会一直叠加，感觉上不太合理
+                }
+            }, false)
+
+            //添加的函数
+            add.onclick = function () {
+                // let Rx = new RegExp("\\b" + delvalue.value + "\\b");
+                if (addvalue.value != "") {
+                    array.push(addvalue.value)
+                    addvalue.value = "";
+                } else {
+                    alert("输入错误，请重新输入")
+                }
+                
+            }
+            del.onclick = function () {
+                let a =0;
+                if(array.indexOf(delvalue.value)>=0) {
+                let index = array.indexOf(delvalue.value); 
+                //indexof()检索目标字符串所在数组的索引位置,没找到的话返回-1
+                array.splice(index,1); //找的是索引，不是数组值
+                 //第一个参数代表删除的起点 删除这个元素，1代表从起点开始删除一个
+                delvalue.value = "";
+                
+                } 
+                else {
+                    alert("请重新输入，您删除的名字不存在");
+                    delvalue.value = "";
+                }
+                
+               
+
+            }
+        }
+    </script>
+    <div id="box">
+        <button>开始</button>
+        <p>随机抽查点名系统</p>
+        <p id="p1">显示名字</p>
+        <div>
+            <input type="text" size="10px" id="addvalue"><input type="submit" value="添加" id="add">
+            <input type="text" size="10px" id="delvalue"><input type="submit" value="删除" id="del">
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom 编码艺术</title>
+</head>
+<body>
+    <script>
+     window.onload = function () {
+         let p = document.getElementsByTagName("p")[0];
+            alert(p.getAttribute("data- apple"));
+            p.setAttribute("id","i_am_p")
+             //获取某个元素节点的属性值，参数是属性。所有的属性都可以。包括自己命名的属性
+             alert(p.id);
+             alert(p.apple) //不用getAttribute的话，只能获取到系统已有的一些属性.
+
+
+             function show() {
+
+             }
+
+
+     } 
+    </script>
+    <p style="position: absolute;font-size: 16px;" data-apple="nihao" ></p>
+     <h1>图片展示</h1>
+     <ul>
+         <li><a href=""></a></li>
+         <li><a href=""></a></li>
+         <li><a href=""></a></li>
+         <li><a href=""></a></li>
+         <li><a href=""></a></li>
+     </ul>
+</body>
+</html>

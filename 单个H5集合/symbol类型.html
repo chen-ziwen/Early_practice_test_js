@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Symbol</title>
+</head>
+<body>
+    <script>
+        let a = Symbol("你好呀");
+        console.log(a,typeof a)
+        let b = Symbol("hello");
+        let obj = {
+            name:"陈子文",
+            age:21,
+        
+        }
+        obj[b] = "我是Symbol"; //Symbol是一种独一无二的属性名，每一个Symbol都是不一样的
+        console.log(obj)
+        // console.log(typeof b)
+    </script>
+</body>
+</html>

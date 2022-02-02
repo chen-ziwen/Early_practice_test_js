@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>class类</title>
+</head>
+
+<body>
+    <script>
+        // ES5 实现类方法
+        function Phone(brand, price) {
+            this.brand = brand;
+            this.price = price;
+            
+        }
+        Phone.prototype.phone = function () {
+            console.log("我可以打电话");
+        }
+        let xiaomi = new Phone("小米", 1999);
+        let huawei = new Phone("华为", 5999);
+        console.log(xiaomi);
+        console.log(huawei);
+        xiaomi.phone();
+        huawei.phone();
+
+       // ES6 实现类方法，语法糖，本质上还是利用原型链实现
+        class Shouji {
+            // 类构造函数，名字不能修改
+            constructor(brand, price) {
+                this.brand = brand;
+                this.price = price;
+            }
+
+           // 函数在class中必须使用这个语法
+           like() {
+            console.log("我可以给喜欢的人点赞");
+           }
+           hello = "你好";
+        }
+
+        let realme = new Shouji("真我",1399);
+        console.log(realme);
+        realme.like();
+        console.log(realme.hello)
+        
+       
+        
+
+        /// 静态属性 
+          /* 标注了static 的属性方法，都属于Fruit类本身，而不属于实例化对象
+          实例化对象访问不到*/ 
+
+          // 类就是把属性都写到prototype里面去
+        class Fruit {
+            static name = "苹果"
+            constructor(color){
+              this.color= color;
+            }
+            g = "300g"
+        }
+        let fruit = new Fruit("red");
+        console.log(fruit.color); //可以找到
+        console.log(fruit.name);//加了静态属性，找不到class的属性方法
+        console.log(fruit.g); //不加static的话实例对象可以访问到
+        
+        console.log("-----下面是 class继承-------")
+         //class的继承方式，很简单
+         class Shouji2 extends Shouji {
+            //构造方法
+          constructor(brand, price,size,light) {
+             super(brand, price);//调用父亲的构造方法
+             this.size = size;
+             this.light = light;
+          }
+          playgame() {
+              console.log("我可以打游戏");
+
+          }
+          call() {
+              console.log("我可以打电话");
+          }
+          like() {
+            super.like(); //调用父亲的同名方法
+            // console.log("你很坏，我不喜欢点赞");
+           }
+           name = "陈子文";
+           
+        }
+        console.log(typeof Shouji2.call);
+        let meizu = new Shouji2("魅族",2000,"6.5","屏幕很亮")
+        console.log(meizu.name); //自身的属性 /陈子文
+        console.log(meizu.hello);//调用父亲的属性  /你好
+        meizu.playgame(); //自身的方法
+        meizu.like() //调用父亲的方法
+        
+        // class 有 set get 属性 ，具体作用还要后面自己去了解
+
+       
+            
+        </script>
+</body>
+
+</html>

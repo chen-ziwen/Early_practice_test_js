@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dom 修改记录</title>
+     <style>
+     #tab,#total{
+         
+         text-align: center;
+         margin-top: 40px;
+         
+     }
+    
+     .for li {
+         list-style: none;
+     }
+     a {
+         text-decoration: none;
+     }
+     </style>
+</head>
+<body>
+    <div id="total">
+    <table id="tab" border="1" cellspacing="0px" cellpadding = "5px" align="center">
+        <tr>
+        <th>姓名</th>
+        <th>邮箱</th>
+        <th>薪水</th>
+        <th></th>
+       </tr>
+        <tr>
+            <td>陈子文</td>
+            <td>2452559902@qq.com</td>
+            <td>24000</td>
+            <td><a href="#" id="del">删除</a></td>
+        </tr>
+    </table>
+    
+     <form class="for">
+         <h1>添加新员工</h1>
+         <ul>
+         <li>姓名：<input type="text" value="输入姓名" id="apple"></li>
+         <li>邮箱：<input type="text" value="输入邮箱" id="apple"></li>
+         <li>薪水：<input type="text" value="输入薪水" id="apple"></li>
+         <input type="submit" value="提交按钮">
+        </ul>
+         
+        
+         
+              
+     </form>
+    
+    </div>
+    <script>
+        let del = document.getElementById("del");
+        
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数组方法练习</title>
+</head>
+<body>
+	<script>
+
+    // let arr = [2,3,5,4,9,7,6];
+    // arr.sort().reverse();
+    // console.log(arr);
+
+    // 方法一：
+
+    /*let arr1 = [4,5,8,3,6,9,8,45,1,23,478,46,12];
+
+     let count = function(a,b){
+    	if(a>b){
+    		return 1;
+    	}
+    	else if (a<b) {
+    		return -1;
+    	}
+    	else if (a==b){
+    		return 0
+    	}
+    };
+    arr1.sort(count);*/
+
+    // 方法二
+ 
+    /*let arr1 = [4,5,8,3,6,9,8,45,1,23,478,46,12];
+    arr1.sort(function(a,b){
+    	if(a>b){
+    		return 1;
+    	}
+    	else if (a<b) {
+    		return -1;
+    	}
+    	else if (a==b){
+    		return 0
+    	}
+    });
+    
+    console.log(arr1)*/
+
+    // 方法三 通过return 自己判断 最好的办法。
+    
+    /*let arr1 = [4,5,8,3,6,9,8,45,1,23,478,46,12];
+    arr1.sort(function(a,b){
+    	return a-b;
+    });
+    console.log(arr1);*/
+    var start = new Date();
+    start.getTime();
+
+    for (let i = 0; i<100; i++){
+    	console.log(i);
+    }
+    let end = Date.now();
+    console.log("我输出总共花了"+(end-start)+"毫秒");
+	</script>
+	
+</body>
+</html>

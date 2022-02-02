@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>写计算器</title>
+    <style>
+        #tab {
+            width: 600px;
+            height: 600px;
+            background-color: cornflowerblue;
+            margin: 100px auto;
+            /* position: absolute; */
+
+
+        }
+
+        #tr1 {
+            background-color: cyan;
+        }
+
+        tr td {
+            text-align: center;
+            font-size: 20px;
+            font-weight: 700;
+            color: #000;
+        }
+
+        th {
+            height: 100px;
+            font-size: 30px;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <table border="1px" cellspace="0px" cellpadding="5px" id="tab">
+
+        <th id="tr1" colspan="4">
+
+        </th>
+        <tr id="tr2">
+            <td>(</td>
+            <td>)</td>
+            <td>%</td>
+            <td>C</td>
+        </tr>
+        <tr id="tr3">
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+            <td>÷</td>
+        </tr>
+        <tr id="tr4">
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+            <td>×</td>
+        </tr>
+        <tr id="tr5">
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>-</td>
+        </tr>
+        <tr id="tr6">
+            <td>0</td>
+            <td>.</td>
+            <td>=</td>
+            <td>+</td>
+        </tr>
+    </table>
+
+
+    <script>
+        let tab = document.getElementById("tab");
+        let tr1 = document.getElementById("tr1");
+        let tr2 = document.querySelectorAll("#tr2 td");
+        let tr3 = document.querySelectorAll("#tr3 td");
+        let tr4 = document.querySelectorAll("#tr4 td");
+        let tr5 = document.querySelectorAll("#tr5 td");
+        let tr6 = document.querySelectorAll("#tr6 td");
+
+
+
+        //按下1 往
+        // tr5[0].onclick = function () {
+
+        //     let textnode = document.createTextNode("1"); 
+        //      tr1.appendChild(textnode);
+
+
+        //  };
+
+        //  tr5[1].onclick = function () {
+
+        //     tr1.appendChild(textnode);
+        //     let textnode = document.createTextNode("2"); 
+
+        //  };
+
+        function total(str, i) {
+            str.onclick = function () {
+                let textnode = document.createTextNode(i);
+                tr1.appendChild(textnode);
+
+            };
+
+        }
+        total(tr6[0], 0);
+        total(tr6[1], ".");
+
+        total(tr6[3], "+");
+        total(tr5[0], 1);
+        total(tr5[1], 2);
+        total(tr5[2], 3);
+        total(tr5[3], "-");
+        total(tr4[0], 4);
+        total(tr4[1], 5);
+        total(tr4[2], 6);
+        total(tr4[3], "×");
+        total(tr3[0], 7);
+        total(tr3[1], 8);
+        total(tr3[2], 9);
+        total(tr3[3], "÷");
+        total(tr2[0], "（");
+        total(tr2[1], ")");
+        total(tr2[2], "%");
+        //  total(tr2[3],C);
+
+        //  total(tr6[2],"=") ;
+        tr2[3].onclick = function () {
+
+            tr1.innerText = "";
+        };
+        tr6[2].onclick = function () {
+            let textnode = document.createTextNode("=");
+            tr1.appendChild(textnode);
+            let geta = document.
+
+            tr6[2].onmouseup = function () {
+
+
+            };
+
+
+
+
+            //  let count = i + j ;
+
+        };
+        //分别调用
+
+        //集体绑定 
+
+        // function bl (trs) {
+        //     for(let i=0; i<4; i++) {
+        //     trs[i].onclick = function () {
+        //        alert("我爱你");
+        //     };
+
+        // }
+
+
+
+        // }
+        // bl(tr2);
+        // bl(tr3);
+        // bl(tr4);
+        // bl(tr5);
+        // bl(tr6);
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ie 缓存问题</title>
+    <style>
+        #box {
+            width: 200px;
+            height: 100px;
+            border: 5px solid purple;
+        }
+    </style>
+</head>
+<body>
+    <button>点击发送请求</button>
+    <div id="box"></div>
+    <script>
+        window.onload = function () {
+        let btn = document.getElementsByTagName("button")[0];
+        let box = document.getElementById("box");
+
+        btn.onclick = function () {
+
+        let xhr = new XMLHttpRequest();
+
+        xhr.open('GET','http://127.0.0.1:8000/ie?='+Date.now()); 
+        //ie兼容方式 获取最新的服务器数据      ?= +Date.now()
+                                                    
+        xhr.send();
+        
+        xhr.onreadystatechange = function () {
+            if(xhr.readyState === 4) {
+
+                if(xhr.status >= 200 && xhr.status <300) {
+
+                    box.innerHTML = xhr.response;
+                }
+            }
+        }
+    }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>130 div 移动之定时器</title>
+    <style>
+        #div1 {
+
+            width: 100px;
+            height: 100px;
+            background-color: chocolate;
+            position: absolute;
+            /* visibility: hidden; */
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        window.onload = function () {
+
+            let div1 = document.getElementById("div1");
+             var sta = 0;
+            document.onkeydown = function (event) {
+                event = event || window.event;
+            
+              sta = event.keyCode;
+
+               if(event.shiftKey){
+						speed = 6;
+					}else{
+						speed = 3;
+					}
+
+            };
+
+           setInterval(function(){
+
+               
+                // let c = event.keyCode;
+
+                // let speed = 10;
+                // if (event.shiftKey) {
+                //     speed = 40;
+                // }
+
+                   switch (sta) {
+                       case 65 : 
+                       div1.style.left = div1.offsetLeft-speed+"px";
+                       break ;
+                       case 68 :
+                       div1.style.left = div1.offsetLeft+speed +"px";
+                       break ;
+                       case 87 : 
+                       div1.style.top = div1.offsetTop-speed+"px";
+                       break ;
+                       case 83 : 
+                       div1.style.top = div1.offsetTop+speed+"px";
+                       break ;
+
+                    
+                }
+             
+            },10);
+                // if (c === 65) {
+                //     div1.style.left = a - speed + "px";
+                // } else if (c === 68) {
+                //     div1.style.left = a + speed + "px";
+                // } else if (c === 87) {
+                //     div1.style.top = b - speed + "px";
+                // } else if (c === 83) {
+                //     div1.style.top = b + speed + "px";
+                // }
+                document.onkeyup = function () {
+
+                     sta = false ;
+                };
+
+            };
+                
+
+
+           
+
+            
+            // let ipt =document.getElementById("ipt");
+            // ipt.onkeydown = function (event) {
+            //       let a = event.keyCode
+            //       console.log(a);
+            // };
+            //获取上下左右的标识符
+            //左65 右68 上87 下83
+            
+
+
+            
+       
+    </script>
+    <div id="div1">111</div>
+    <!-- <input type="" name="" value="" id= ipt> -->
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>DOM事件</title>
+	<style>
+    .nihao {
+    	text-align: center;
+    	margin:50px 0px 0px ;
+    }
+    button {
+    	background-color: lightblue;
+    	padding: 15px;
+    	font-size: 40px;
+    	font-weight: 700;
+    	color:yellow;
+    	border-top: solid 10px yellow;
+    	box-shadow: 10px 10px 8px red;
+    }
+	</style>
+</head>
+<body>
+	<div class="nihao"><button id ="apple" >不相信爱情</button></div>
+	<script>
+    let a = document.getElementById("apple");
+    a.ondblclick = function(){
+    	alert("我讨厌你");
+    };
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js正则捕获文本</title>
+</head>
+<body>
+    <script>
+        window.onload = function () {
+           let reg = '<a href="http://www.baidu.com">你好嘿嘿</a>'
+        //    let a = /<a href="(.*)">(.*)<\/a>/;
+        //    let b = a.exec(reg);
+        //    console.log(b); //会返回一个数组
+        //    console.log(b[0],b[1],b[2])
+
+
+           ////这样写返回值会多出一个group，便于调用维护
+           let a = /<a href="(?<url>.*)">(?<text>.*)<\/a>/;
+           let b = a.exec(reg);
+           console.log(b); 
+           console.log(b[0],b[1],b[2])
+        }
+    </script>
+     
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        window.onload = function (e) {
+            let body  = document.getElementsByTagName('body')[0]
+            let a = document.createElement('h1',{className : 'czw'},'今天的你也很漂亮')
+            let c = document.createElement('nav')
+            body.appendChild(a)
+            body.appendChild(c)
+            a.setAttribute('class','apple')
+            a.style.cssText = 'display:block;width:100px;height:100px;background-color:red'
+            a.id = '陈子文'
+            let b = document.createTextNode('我喜欢你很久了')
+            a.appendChild(b)
+            console.log(a)
+            c.innerHTML = `<div class = 'czwhhhh'><h1>我叫陈子文</h1><div>`
+        }
+    </script>
+</body>
+</html>

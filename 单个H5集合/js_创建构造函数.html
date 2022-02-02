@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+
+   //创建构造函数
+   /* 原始的 Object 构造函数：
+   function Object () {
+	
+   }
+
+   */
+  
+
+  //创建一个Person构造函数：
+   function Person (name,age,gender) {
+     this.name = name;
+     this.age = age;
+     this.gender = gender;
+     let apple = function () {
+     	console.log(this.name)
+     };
+
+     // return Person ;
+   }
+  //创建一个Pig构造函数
+   function Pig (name,age) {
+     this.name = name;
+     this.age = age;
+
+     /*写在函数内部，每调用一次就会创建一个新的apple很占内存
+     let apple = function () {
+     	console.log(this.name);
+     };
+     */
+     this.apple = fun;
+   }
+   
+   function fun ( ) 
+   {
+   	console.log(this.name);
+   }
+
+
+  //构造函数创建对象的同时，把实参传递给形参。
+  let per = new Person("陈子文",21,"男");
+  let per2 = new Person("郑汝",21,"女");
+
+  
+  let pig = new Pig ("佩奇",4);
+  let pig2 = new Pig ("乔治",5);
+
+  console.log(per);
+  console.log(per2);
+
+  console.log(pig);
+  console.log(pig2);
+
+
+
+	</script>
+</body>
+</html>

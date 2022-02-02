@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map构造函数</title>
+</head>
+<body>
+    <script>
+         /*在对象中，无法用对象作为对象属性的键名。
+        但是在Map映射中，却可以这样做，可以这么说，
+        在Map映射里面可以使用任意数据类型来作为键。*/
+        //keys()方法遍历映射的键
+        //values()方法遍历映射的值
+        //entries()方法同时遍历映射的键与值
+        let a = new Map([["姓名：","陈子文"],["年龄：","22"],["是否单身","是"]]);
+        alert(a.size)
+        a.set("有无喜欢的对象","没有");
+        a.set("大学舍友",{a:"王允志",b:"李龙",c:"叶春阳"})
+        console.log(a);
+        a.delete("姓名：")
+        // a.clear();
+        console.log(a.get("大学舍友")) // get 从映射中获取想要的属性对象
+        
+    </script>   
+</body>
+</html>

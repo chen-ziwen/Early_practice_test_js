@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>es8_async函数</title>
+</head>
+<body>
+     <script>
+         //函数前面加上async 这个函数会变成async函数，返回值是一个promise对象
+        //  await 必须写在async的内部，具体怎么用学了异步编程在看
+         async function fun () { 
+             
+             return "你好"
+         }
+         let result = fun();
+         console.log(result);
+     </script>
+</body>
+</html>

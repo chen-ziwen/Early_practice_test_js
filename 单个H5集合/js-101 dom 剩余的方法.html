@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM查询剩余方法</title>
+</head>
+<body>
+    <script>
+        /*
+        document.body
+
+        document.documentELement
+
+        document.all
+
+        三种属性
+        
+        1. document.querySelector 这个方法需要一个选择器的字符串作为参数，
+        可以根据一个css选择器来查询一个元素节点对象。
+        
+        
+        2.使用该方法总会返回唯一的一个元素，如果满足条件的元素有多个，那么
+        它会返回第一个。
+        */
+        
+        window.onload = function(){
+        let a = document.querySelector(".apple p");
+       console.log(a.innerHTML);
+
+        //下面代码中let a 和 let b 等价
+        let b = document.querySelectorAll("div>h1")[0]; //获取h1元素组
+        console.log(b.innerHTML);
+        let c = document.getElementsByTagName("h1")[0];//获取h1元素组
+        console.log(c.innerHTML);
+    };
+    </script>
+    <div class="apple"><p>我爱你</p></div>
+    <div><h1>你就是个傻逼</h1></div>
+    <div></div>
+</body>
+</html>

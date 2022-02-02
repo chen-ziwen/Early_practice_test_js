@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>正则表达式</title>
+</head>
+<body>
+	<script>
+		//创建正则表达式
+    let reg = new RegExp("ab|a|c","i");
+    let str = "d";
+    console.log(reg.test(str));
+    
+     // 字面量创建
+     let reg2 = /ab|a|c/i;
+     let str2 ="AB"
+     console.log(reg.test(str2));
+
+
+	</script>
+</body>
+</html>

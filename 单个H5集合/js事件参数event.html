@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js事件参数event</title>
+</head>
+   <style>
+      .box {
+          width: 100px;
+          height: 100px;
+          background-color: blue;
+         
+          
+      }
+   </style>
+<body>
+    <div class= "box">
+        
+    </div>
+    <script>
+      /*event属性有很多，我比较常用的有这些
+      clientX，clientY,pageX,pageY,keyCode,shiftKey,ctrlKey,altKey,metaLey
+      还有很多很多的属性，不懂得去查文档，课本499也有一些*/
+      //event.btton : 0表示左键，1表示鼠标中键 ，2表示鼠标右键
+        window.onload = function () {
+            let box = document.getElementsByClassName("box")[0];
+            function a (event) {
+            //   console.log(event.keyCode);
+              if(event.shiftKey&&event.keyCode == 90) {
+              box.style.cssText ="width:200px;height:200px;background-color:red;border-radius :50%"
+            }
+            else if(event.ctrlKey&&event.keyCode == 90) {
+             box.style.cssText ="width:150px;height:150px;background-image: linear-gradient(45deg ,#bfa ,red)"
+            }
+            }
+            addEventListener("keydown",a,false);
+
+
+            function b (event) {
+              if(event.button == 1) {
+              box.style.cssText ="width:200px;height:200px;background-color:red;border-radius :50%"
+            }
+        }
+          
+        addEventListener("mousedown",b,false)
+         
+        //key和char两个新属性 课本p520页 
+        //很好用，两者的差别在char匹配字符串时返回null，key返回键名（Shift）[]
+        function c (event) {
+              if(event.key == "a") { //这个比keyCode更好用，直接匹配字符的名称
+                //当按下键盘上的a时，触发效果
+              box.style.cssText ="width:200px;height:200px;background-color:red;border-radius :50%"
+            }
+        }
+        addEventListener("keydown",c,false)
+        //w:87 s:83 a:65 d:68 z:90 
+    }
+
+    </script>
+</body>
+</html>

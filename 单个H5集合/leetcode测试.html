@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据</title>
+</head>
+
+<body>
+    <script>
+            
+        var moveZeroes = function (nums) {
+            let a = 0;
+            let b = 0;
+            let num1 = [];
+            let num2 = [];   
+        for (let i = 0 ; i < nums.length; i++) {
+                if (nums[i] != 0) {
+                    num1[a] = nums[i];
+                    a++;
+                } 
+                else {
+                    num2[b] = nums[i];
+                    b++;
+                }
+            }
+            
+             let array = num1.concat(num2);
+            //  console.log(array);
+            return array;
+              
+              
+        };
+         
+        
+        moveZeroes([0,0,1,5,7,8,0,0,9]);
+
+       
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js 练手随笔</title>
+</head>
+
+<style>
+    #box {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        background-color: rgb(173, 34, 150);
+        text-align: center;
+        color: cornflowerblue;
+        font-weight: 700;
+        font-size: 25px;
+    }
+
+    #box2 {
+
+        position: absolute;
+        left: 500px;
+        top: 0px;
+        width: 300px;
+        height: 300px;
+        border: 2px solid black;
+        background-color: brown;
+        border-radius: 50%;
+        opacity: 0.5;
+        box-shadow: 15px 15px 15px black;
+
+    }
+
+    #box3,
+    #box4,
+    #box5,
+    #box6,
+    #box7,
+    #box8,
+    #box9,
+    #box10 {
+         /*添加浮动会有行内块的特性，不管是行内元素还是块元素，都会变成行内块元素
+         
+         块级元素本来是按设置的宽高来显示，加了float，就变成按里面内容来排列      
+         
+         浮动的盒子中间没有间隙，是紧挨在一起的*/
+         
+        position: relative;
+        border-radius: 6px; /*宽度设置成高度的一般，可以实现圆角矩形*/
+        width: 22px;
+        height: 12px;
+        background-color: darkgray;
+        margin: 300px 0px 0px 0px;
+        border: 2px solid black;
+        box-shadow: 3px 3px 7px  rgba(0, 0, 0, .5) ; /*半透明颜色*/
+        
+    }
+
+    #total {
+        
+        display: flex;
+        /* flex-direction: row;
+        flex-wrap: nowrap; */
+        justify-content: space-around;
+        width: 400px;
+        height: auto;
+        /* align-items: center; */
+        margin: 200px auto;
+        opacity: 0.65;
+    }
+</style>
+
+<body>
+    <script>
+        window.onload = function () {
+
+            let box = document.querySelector("#box");
+            box.addEventListener("click", (event) => {
+                let a = setInterval(() => {
+
+                    box.style.width = box.clientWidth + 3 + "px";
+                    box.style.height = box.clientHeight + 3 + "px";
+
+                    if (Number.parseInt(box.style.width) > 400) {
+
+                        box.style.backgroundColor = "#ff69b4";
+                        clearInterval(a);
+                        box.style.backgroundColor = "#bfa";
+
+                        let b = setInterval(() => {
+                            box.style.left = box.offsetLeft + 5 + "px";
+                            box.style.top = box.offsetTop + 1 + "px";
+                            if (Number.parseInt(box.style.left) > 1000) {
+                                box.innerHTML = "结束了吗?,不还没结束！"
+                                clearInterval(b);
+                            }
+                        }, 10)
+
+                    }
+                }, 10)
+
+
+            }, false);
+            box.addEventListener("click", () => {
+                //   alert("你就好像那个山顶洞人")
+
+                setTimeout(() => {
+                    box.style.left = box.offsetLeft - 1000 + "px";
+                    box.style.top = box.offsetTop - 200 + "px";
+                    box.innerText = "我又回来了，但我变黄了";
+                    box.style.backgroundColor = "yellow";
+                }, 4000)
+
+            }, false);
+
+            let box2 = document.getElementById("box2");
+            let b = setInterval(() => {
+                    switch (Math.floor(Math.random() * 9 + 1)) {
+
+                        case 1:
+                            box2.style.backgroundColor = "#dc143c";
+                            break;
+                        case 2:
+                            box2.style.backgroundColor = "#708090";
+                            break;
+                        case 3:
+                            box2.style.backgroundColor = "#3CB371	";
+                            break;
+                        case 4:
+                            box2.style.backgroundColor = "#bfa";
+                            break;
+                        case 5:
+                            box2.style.backgroundColor = "#ffffff";
+                            break;
+                        case 6:
+                            box2.style.backgroundColor = "#FAEBD7";
+                            break;
+                        case 7:
+                            box2.style.backgroundColor = "#FF7F50";
+                            break;
+                        case 8:
+                            box2.style.backgroundColor = "#800000";
+                            break;
+                        case 9:
+                            box2.style.backgroundColor = "#DCDCDC";
+                            break;
+                        case 10:
+                            box2.style.backgroundColor = "#000000";
+                            break;
+                        default:
+                            "没有这个数"
+
+
+                    }
+
+                }, 1000)
+
+            let boxs = document.querySelectorAll("#total div");
+            //定义全局i接收函数内的i变量，避免被销毁
+            let i = 0;
+            let d = setInterval(() => {
+
+                if(i>7)
+                i=0; 
+                i++;
+
+                switch (i) {
+
+                    case 1:
+                        boxs[7].style.backgroundColor = "darkgray";
+                        boxs[0].style.backgroundColor = "#1E90FF";
+                        break;
+
+                    case 2:
+                        boxs[0].style.backgroundColor = "darkgray";
+                        boxs[1].style.backgroundColor = "#1E90FF";
+                        break;
+
+                    case 3:
+                        boxs[1].style.backgroundColor = "darkgray";
+                        boxs[2].style.backgroundColor = "#1E90FF";
+                        break;
+
+                    case 4:
+                        boxs[2].style.backgroundColor = "darkgray";
+                        boxs[3].style.backgroundColor = "#1E90FF";
+                        break;
+
+                    case 5:
+                        boxs[3].style.backgroundColor = "darkgray";
+                        boxs[4].style.backgroundColor = "#1E90FF";
+                        break;
+
+                    case 6:
+                        boxs[4].style.backgroundColor = "darkgray";
+                        boxs[5].style.backgroundColor = "#1E90FF";
+                        break;
+
+                    case 7:
+                        boxs[5].style.backgroundColor = "darkgray";
+                        boxs[6].style.backgroundColor = "#1E90FF";
+                        break;
+
+                    case 8:
+                        boxs[6].style.backgroundColor = "darkgray";
+                        boxs[7].style.backgroundColor = "#1E90FF";
+                        break;
+
+                    default :
+                        "没有这个数"
+                        // if(i>=8) 
+                        break;
+                } 
+
+            },800)
+        } 
+
+    </script>
+    <div id="box">你看我就完事了</div>
+    <div id="box2"></div>
+
+    <div id="total">
+
+        <div id="box3"></div>
+        <div id="box4"></div>
+        <div id="box5"></div>
+        <div id="box6"></div>
+        <div id="box7"></div>
+        <div id="box8"></div>
+        <div id="box9"></div>
+        <div id="box10"></div>
+
+    </div>
+    
+</body>
+</html>

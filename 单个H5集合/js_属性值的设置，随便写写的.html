@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js_焦点管理</title>
+</head>
+<body>
+
+    <script>
+       
+        let divs = document.createElement("div")
+        let bodys = document.querySelector("body")
+        divs.id = "foc" 
+        divs.style.width = "auto"
+        divs.style.height = "300px"
+        divs.style.backgroundColor = "#bfa"
+        bodys.appendChild(divs)
+        divs.innerHTML = `<h1>随便写一点</h1>
+        <div class="hello">
+        <img src="cat.jpg" alt="图片已丢失" style = "width:100px;height:100px">
+        </div>`
+        let image = document.querySelector("img[src]")
+        image.setAttribute("apple","red")
+        let a  = document.getElementById("foc")
+        a.addEventListener("click",b,false)
+        function b () {
+            divs.style.backgroundColor = "red"
+            alert(image.getAttribute("apple"))
+        }
+        
+    </script>
+</body>
+</html>

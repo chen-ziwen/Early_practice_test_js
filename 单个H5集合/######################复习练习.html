@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       let a = 'abc'
+       let b = [1,2,3]
+       let c = b.splice(2,1,4)  
+       //第一个值选择索引值为2的数，第二个值：需要删除1位，第三个值，添加一个4
+    //    返回值为数组，删除的值作为数值的值
+       console.log(a,b,c)
+       let d = a.split('') //将字符串转化为数组
+       let e = a.slice(1,2) //截取 1为起始索引，2为结束，但不包括
+       let f = a.substr(1,2)
+       let g = b.join('')
+       console.log('d的值为：'+d,d instanceof Array,d[0],e,f,g)
+
+       
+    </script>
+</body>
+</html>

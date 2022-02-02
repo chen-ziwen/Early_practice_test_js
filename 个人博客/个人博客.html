@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css a下拉</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+        a {
+            text-decoration: none;
+        }
+        li {
+            list-style: none;
+        }
+        .along_nav {
+            width: auto;
+            height: auto;
+            background-image:linear-gradient(to right,#f0ffff,#afeeee,#f0e68c,#ffa07a);
+            /* margin-top: 10px; */
+        }
+        .nav {
+            height: 43px;
+            
+        }
+        .ul1 { 
+            /* padding-top: 5px; */
+            /* position: relative;
+            top: 5px; */
+           
+            height: 43px;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            
+        }
+        .ul1 li a {
+            line-height: 40px;
+            text-align: center;
+            display: block;
+            width: 100px;
+            height: 40px;
+            color: black;
+            font-size: 20px;
+            font-style: italic;
+        }
+        .ul1 li a:hover {
+           background-color: darkgray;
+           opacity:0.55;
+           color: red;
+           border-bottom: rgb(5, 72, 139) 3px solid;
+
+        }
+        .beijing {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 100%;
+            height: 600px;
+            background : no-repeat url(bag.jpg);
+            background-size: 100% 600px;
+           
+        }
+        .jieshao1,.jieshao2 {
+            width: 200px;
+            height: 300px;
+            background:no-repeat url(head.jpeg);
+            background-size: 200px 300px;
+            border-radius: 50%;
+            text-align: center;
+            
+        }
+        .jieshao1 span,.jieshao2 span {
+            position: relative;
+            top: 330px;
+            display: block;
+            width: 200px;
+            height: 100px;
+            color: whitesmoke;
+            
+        }
+   </style>
+</head>
+ <body>
+    
+    <script>
+        
+        window.onload = function () {
+
+
+           
+        }
+        
+    </script>
+    <nav class="along_nav">
+        <div class="nav">
+            <ul class="ul1">
+                <li><a href="#">首页</a></li>
+                <li><a href="#">个人简介</a></li>
+                <li><a href="#">学习经历</a></li>
+                <li><a href="#">目标offer</a></li>
+                <li><a href="#">努力方向</a></li>
+            </ul>
+            <div class="beijing">
+               <div class="jieshao1">
+                <span>姓名:陈孜<br>大三学生<br>陈子文的别名</span>
+               </div> 
+
+               <div class="jieshao2">
+                <span>姓名:陈子文<br>大三学生<br>18级信工 </span>
+               </div>
+
+            </div>
+        </div>
+    </nav>
+</body>
+</html>

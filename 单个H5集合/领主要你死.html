@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+   window.onload = function(e) {
+     let a = 'czw';
+     let texta = document.querySelector('#czwid')
+     texta.onselect = function (e) {
+      e.target.style.color = 'blue'
+     }  
+     
+    let btn  = document.getElementsByTagName('button')[0]
+   btn.onclick = function () {
+     let confir =   confirm('我是宇宙第一帅')
+     if(confir) {
+        let name = prompt('看来你很有眼光 告诉我你的名字 孩子')
+        if(name == '陈子文') {
+            if(confirm('你叫陈子文？')) {
+             alert('你是我的孩子呀')
+             if(+prompt('你今年几岁？')==22) {
+                 alert('确定了 你就是我失散多年的儿子')
+             }
+             else {
+                 alert('看来我认错人了 不是我的子嗣 我要吃了你')
+                 document.write('游戏结束！！！！')
+             }
+            }
+            else {
+                alert('你敢欺骗我 去死吧凡人 你死了 你欺骗了领主')
+                document.write('游戏结束！！！！')
+            }
+        }
+        else {
+            if(confirm('领主叫你退下，是否退下')) {
+                alert('你逃过一劫')
+            }
+            else {
+                alert('你不珍惜领主给你的活命机会，还敢作死，你死了')
+                document.write('游戏结束！！！！')
+            }
+        }
+     }
+     else {
+         alert('你死了 你拒绝夸赞举世无双的领主')
+         document.write('游戏结束！！！！')
+     }
+     
+    //   close()
+   }
+   window.onresize = function () {
+     alert('窗口被缩小')
+   } 
+
+   } 
+  
+</script>
+<body>
+    <textarea name="czw" id="czwid" cols="30" rows="10" placeholder='请输入文字'>
+        哈哈哈哈哈哈
+    </textarea>
+    <button>点击我</button>
+</body>
+</html>

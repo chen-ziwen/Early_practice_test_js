@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>练习</title>
+</head>
+
+<body>
+    <script>
+        
+
+         //所有的函数内部都有一个prototype属性，这个属性指向一个Object对象， 
+         //这个对象中有一个constructor属性，这个属性指向这个函数本身。
+            function Father(name, sex, age) {
+                this.name = name
+                this.sex = sex
+                this.age = age
+            }
+            Father.prototype.fn = function () {
+                console.log("我是继承来的方法")
+            }
+
+            function Son(name, sex, age) {
+                Father.call(this, name, sex, age) //把Son的实例对象指定为Father函数的this
+            }
+            
+            Son.prototype = new Father();
+            Son.prototype.constructor = Son //手动修正constructor的指向 让它重新指向原本的son函数
+
+            let son1 = new Son();
+            let son2 = new Son('陈子文', '男', 22)
+
+            console.log(son2)
+            son1.fn()
+            console.log(Father.prototype)
+
+
+
+            //自己实现一个new 
+
+        function myNew() {
+            var constr = Array.prototype.shift.call(arguments);
+            var obj = Object.create(constr.prototype);
+            var result = constr.apply(obj, arguments);
+            return result instanceof Object ? result : obj;
+        
+        }
+
+
+        //hasOwnProperty
+        //检测某个属性是否属于某个对象
+        const obj = new Father()
+        obj.name = 'czw'
+        console.log(obj.hasOwnProperty('name')) 
+        console.log(obj.hasOwnProperty('hello'))
+
+
+        
+        //原型式继承  接收一个对象作为莫个函数的原型对象
+
+        // function createp (o) {
+        //     function Fn () {};
+        //     Fn.prototype = o;
+        //     return Fn  //利用闭包把函数内部的变量传到全局变量中
+        // }
+        
+        // let a = {
+        //     name : 'czw',
+        //     sex : 'man',
+        //     age : 22
+        // }
+        // let Fn2 = createp(a)        
+        // const fn2 = new Fn2 ()
+        // console.log(fn2.name,fn2.sex,fn2.age)
+
+        function createp (o) {
+            function Fn () {};
+            Fn.prototype = o;
+            return new Fn()  //利用闭包把函数内部的变量传到全局变量中
+        }
+        
+        let a = {
+            name : 'czw',
+            sex : 'man',
+            age : 22
+        }
+
+        let fn2 = createp(a)        
+        console.log(fn2.name,fn2.sex,fn2.age)
+     
+        // 写一个promise操作
+        // Promise.resolve(a)等价于 
+        // new Promise((resolve,reject)=>{resolve(a)}
+        // Promise.reject() 与上面同理
+
+        let yibu = new Promise((resolve,reject)=>{
+            resolve('你好呀')
+        }).then(value => {
+            console.log(value)
+            return Promise.resolve('我是你的爸爸');
+        }).then(value => {
+            console.log(value)
+        }).then(value=>{ 
+            //因为上一个then没有写返回值，所以默认为undefined 返回的是成功状态的期约，值为undefined
+            console.log(value) //undefined 
+        }) 
+          
+        //
+        
+        let arr = [2,6,5,1,4,8,9,7,4,5,6,8,7,12,5]
+        let arr1 = [...new Set(arr)]
+        arr1.sort((a,b)=>a-b) //返回值是前一个减去后一个，是升序，后减前是降序
+	    console.log(arr1)
+        let arr2 = arr1.reverse()
+        console.log(arr2)
+
+        //
+        let str = 'chen-zi-wen'
+        let str1 = str.split('-');
+        for(let i =1; i<str1.length; i++) {
+          str1[i] = str1[i].charAt(0).toUpperCase() + str1[i].slice(1)
+        }
+        console.log(str1.join(''))
+
+     </script>
+</body>
+
+</html>

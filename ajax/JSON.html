@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>json</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 100px;
+            border: 5px solid purple;
+        }
+    </style>
+</head>
+
+  <div class="box"></div>
+<body>
+    <script>
+        window.onload = function () {
+
+            let box = document.querySelector(".box");
+           window.onkeydown = function () { //onkeydown是window的方法
+
+               const xhr = new XMLHttpRequest();
+
+               xhr.responseType = 'json'; //自动转换
+               
+               xhr.open('GET','http://127.0.0.1:8000/json')
+
+               xhr.send();
+
+               xhr.onreadystatechange = function () {
+                   if(xhr.readyState === 4) {
+
+                    if(xhr.status >= 200 && xhr.status < 300) {
+                        //两种json转换方式
+                        //1.手动数据转换
+                        //let data = JSON.parse(xhr.response)
+                        //box.innerHTML = data.response
+                        
+                        //2. 自动转换
+                        box.innerHTML = `${xhr.response.name}<br>${xhr.response.age}<br>${xhr.response.sex}`;
+
+
+
+                        // box.innerHTML = xhr.response
+                    }
+                   }
+               }
+            }
+        }
+    </script>
+</body>
+</html>

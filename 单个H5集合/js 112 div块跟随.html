@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>div块跟随</title>
+    <style>
+        #image1 {
+            width: 240px;
+            height: 340px;
+            border: 5px solid #bfa;
+            /* background-color: blueviolet; */
+            position: fixed;
+
+        }
+
+        #big {
+            width: 600px;
+            height: 600px;
+
+        }
+
+        /* #apple {
+               width: 200px;
+               height: 200px;
+               background-color: red;
+           } */
+    </style>
+</head>
+
+<body>
+    <!-- <div id="big"> -->
+    <img src="love.jpeg" id="image1">
+
+    </img>
+
+
+    <!-- </div> -->
+    <script>
+        let image1 = document.getElementById("image1");
+   
+        image1.onmousedown = function () {
+
+            let ai = event.clientX - image1.offsetLeft;
+            let bi = event.clientY - image1.offsetTop;
+
+            document.onmousemove = function (event) {
+
+                //鼠标在图片范围中点击的时候不偏移
+                //点击图片时，鼠标的坐标会偏移到新点击的点
+
+                /*解决的办法就是用点击图片时产生的新坐标X-旧坐标X，
+        
+            新坐标Y-旧坐标Y 把两者之间的差值坐标重新赋值给图片偏移*/
+
+                //问题是怎么获取旧坐标
+                event = event || window.event;
+
+
+
+
+
+                let a = event.clientX - ai + "px";
+                let b = event.clientY - bi + "px";
+                // let a = event.clientX +"px";
+                // let b = event.clientY +"px";
+
+
+                //通过内联样式去修改图片本身的偏移量 
+                image1.style.left = a;
+                image1.style.top = b;
+                // event.pageX =event.pageX+"140px";
+                // event.pageY =event.pageY+"170px";
+
+            };
+
+
+            //取消apple的冒泡效果 不能冒泡到document了
+            // let apple =document.getElementById("apple");
+
+            // apple.onmousemove = function ( event) {
+            //    event.cancelBubble = true ;
+            // };
+
+
+
+            document.onmouseup = function () {
+
+                //取消鼠标的onmousemove事件
+                document.onmousemove = null;
+
+                //也取消onmouseup的事件
+                document.onmouseup = null;
+
+                //   alert("已放置");
+
+            };
+ 
+            return false; //取消默认的搜索
+        };jk
+    </script>
+</body>
+
+</html>

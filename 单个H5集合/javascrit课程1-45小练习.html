@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	
+</head>
+<body>
+	<button onclick="alert('18159388315')">
+	点击我显示电话号码</button>
+	<a href="javascript:alert('我叫你点你就点啊')">请狠狠的点击我</a>
+    <h1 style="font-size: 50px;" >&#9760;</h1>
+     <h1 style="font-size: 50px;" id="woai">你好呀兄弟</h1>
+     <h1 id="saobi">你是那个骚逼</h1>
+     <!-- //这是转义字符的 10进制表示 -->
+    <input type="text" id="tupian">
+    <button onclick="tupian()" style="width:100px; height:100px;"> 不要点我，Ok？</button>
+    <button onclick="helloFunctio()" style="width:100px; height:100px;"> 你爱我吗</button>
+    
+</body>
+<script type="text/javascript">
+  //   alert ("你去死吧");
+  //   document.write ("我不爱你了")
+  //   // 先声明后赋值
+  //   var a;
+  //   a="我爱你因为你是我的宝"
+  //   document.write(a);
+  //   //声明和赋值同时进行
+  //   let b = 123456;
+  //   alert(b);
+  //   var a = 100 ;
+  //   if( var a ="我爱你") 
+   
+  //     alert("我爱你很久了");
+  // else {
+  //   document.write("你是我的唯一");
+  // }
+  // //typeof用来检测数据类型。
+  // var a =100;
+  // let b ="100";
+  // document.write(typeof(a));
+  // document.write(typeof(b));
+  
+  // //布尔值检测
+  //   var love = false ;
+  //   console.log (typeof love);
+  //   alert (typeof love);
+
+    // let a = 100;
+    // a = 1 + a ;
+    // console.log (" a = "+a);
+    // var a = 40 , b = 45 ;
+    // max = a>b?a:b ;
+    // console.log("max = " + max);
+    // // \u四位编码 输出转义字符
+    //  alert("\u2641");
+    // var nihao = document.getElementById('tupian');
+    // function tupian () {
+    //     alert("我是你爸爸");
+    // }
+    // const a =100, b=101, c=50;
+    // if (a>b) {
+    //     doucment.write(我是你爸爸);
+    // }
+    // else if (a>c) {
+    //     alert("我爱你");
+
+    // }
+    // else {
+    //     alert("我并不爱你");
+    // }
+
+    // let a = prompt("请输入身高");
+    // let b = prompt("请输入身价");
+    // let c = prompt("请为他的长相打分");
+    // if (a>185&&b>1000&&c>500) {
+    //     alert("他就是我的命中注定");
+    // }
+    // else if (a>185&&b>1000||a>185&&c>500||b>1000&&c>500) {
+    //     alert("我蛮喜欢你，跟我在一起吧");
+    // }
+    // else {
+    //     alert("臭屌丝，滚远点，本小姐瞎了眼才会看上你");
+    // }
+//     var a, b, c;
+//     a = +prompt("请输入第一个数");
+//     b = +prompt("请输入第二个数");
+//     c = +prompt("请输入第三个数");
+
+//     if (a>b&&a>c) {
+//        if (b>c) 
+//        {
+//         alert(a +","+b +","+c);
+//     }
+//         else 
+//             {
+//                 alert(a +","+c +","+b);
+      
+//     }
+// }
+//      else if (b>a&&b>c) {
+//           if (a>c) 
+//           {
+//         alert(b +","+a +","+c);
+//     }
+//         else
+//             {
+//                 alert(b +","+c +","+a);
+//       }
+//     }
+    
+//     else if (c>a&&c>b) 
+//     {
+//           if (a>b)
+//            {
+//         alert(c +","+a +","+b);
+//     }
+//         else
+//             {
+//                 alert(c +","+b +","+a);
+//       }
+
+//     }
+//     switch语句的应用
+ //    var i = +prompt("请输入星期几");
+ //    switch (i) {
+ //     case 1:
+ //     alert("星期一");
+ //     break;
+ //     case 2:
+ //     alert("星期二");
+ //     break;
+ //     case 3:
+ //     alert("星期三");
+ //     break;
+ //     case 4:
+ //     alert("星期四");
+ //     break;
+ //     case 5:
+ //     alert("星期五");
+ //     break;
+ //     case 6:
+ //     alert("星期六");
+ //     break;
+ //     case 7:
+ //     alert("星期日");
+ //     break;
+     
+ //     default:
+ //     alert("非法星期数");
+ // }
+ // var i = +prompt("请输学生成绩");
+ //    switch (parseInt(i/10)) {
+ //     case 10:
+    
+ //     case 9:
+    
+ //     case 8:
+    
+ //     case 7:
+     
+ //     case 6:
+ //     alert("成绩合格");
+ //     break;
+ //     default:
+ //     alert("成绩不合格");
+ // } 
+   // var lixi = 0.05;
+   // var benjin =1000;
+   // var i = 0;
+   // while (benjin<=5000)
+   // {
+   //  benjin = benjin+benjin*lixi;
+   //  i++;
+   // }
+   // alert("总共花了"+i+"年");
+   //1-100之内的所有奇数之和
+  //  var count = 0;
+  //  for(var i = 0; i<=100; i++) { 
+  //  if(i%2 != 0)
+  //  {
+  //   count=i+count;
+  //  }
+  //  }
+  // alert("奇数之和等于"+count);
+  // 打印1-100之间所有七的倍数和总和
+    // let sum =0 , _7bei = 0 ;
+
+    // for(i = 0; i<=100;i++)
+    //     if (i%7==0) {
+    //      sum = i+sum ;
+    //      _7bei++;
+    //     }
+    //     alert("7的倍数总合为"+sum+"且所有是7的倍数的数有"+ _7bei +"个");
+
+      
+      // let zhishu = prompt("请输入一个数判断是否是质数");
+    //    for( let zhishu =2; zhishu<=100;zhishu++)
+    //    {
+    //     var flag = true ;
+    
+    //     for(let i=2 ; i<zhishu; i++){
+    //         if (zhishu%i==0) {
+    //             flag = false;
+    //         }
+            
+           
+
+    //     }
+    //     if (flag) {
+    //         document.write(zhishu+"&nbsp;&nbsp;&nbsp;");
+    //     }
+        
+    // }
+
+     // for(var i=0;i<10;i++){
+     //    for(var j=10;j>i;j--){
+     //       console.log("*");
+     //    }
+     //    console.log("<br />")
+     // }
+     // 乘法口诀表
+    //  var sum = 0 ;
+    // for(var i =1 ; i<=9 ; i++){
+    //     for(var j = 1 ; j<=i ; j++){
+    //         sum = j*i;
+    //        document.write(j+"*"+i+"="+sum+"&nbsp;&nbsp;&nbsp;&nbsp;");
+
+    //     }
+    //     document.write("<br />")
+    // }
+  //  var apple = new Object();
+  //   apple.name = "hello";
+  //   apple.math = 123456;
+  //   apple.height =178;
+  //  console.log(apple.name);
+
+  //  const nihao = new Object();
+  //  nihao.name ="陈子文";
+  //  nihao.number =18159388315;
+  //  nihao.height = "178cm";
+  // console.log(nihao);
+
+  // let shadow = new Object();
+  // let shadow2 = new Object();
+ 
+  // shadow[""]="我爱你，我不后悔";
+  // shadow2["nishishui"] = "其实蛮后悔的";
+  // shadow[""] = shadow2;
+  
+  // console.log(shadow[""]["nishishui"]);
+
+  // let a = 123 ;
+  // a++;
+  // let b = a ;
+  
+  // console.log(a);
+  // console.log(b);
+  
+//   function sum (a,b,c) {
+//     a = +prompt("请输入第一个数");
+//     b = +prompt("请输入第二个数");
+//     c = +prompt("请输入第三个数");
+//     // alert(a+b+c);
+//     let d = a + b + c;
+//     return d ;
+//   }
+//    // sum();
+//    let result = sum();
+// alert(result);
+     function fun(a){
+
+    console.log("a="+a);
+
+     }
+
+    function mianji (r) {
+
+     
+     
+     return 3.14*r*r;
+
+    }
+     var mianji2 = mianji();
+     console.log("面积为"+mianji2);
+   
+    
+     fun(mianji(10));//这个只调用fun()函数；
+
+     
+//直接执行的函数
+     (function (a,b,c)
+      {
+        console.log("你是谁，我爱你妈")
+        console.log(a,b,c)
+      })(123,458,256);
+
+      let qwe = new Object();
+
+      qwe.name = function(a,b,c)
+       {    //这个函数等于 function qwe.name (a,b,c) { console.log("这个数字是"+a+b+c);}
+            console.log("这个数字是"+a+b+c);
+      };
+      qwe.name(5,2,0);
+
+      //document.write 怎么来的反推
+       
+       //第一种写法，对象的属性除了write还可以有无数个属性，每个属性又可以赋值一个函数。
+       let document = new Object;
+       document.write = function (/*这个里面写的是形参*/) {
+
+       };
+       //需要调用的时候写document.write(这个括号里写的是这个函数的实参，传递给形参)
+
+
+       
+       //第二种写法
+       let document = {
+        write : function(){};//具体功能实现不详写
+       };
+    </script>
+
+
+</html>

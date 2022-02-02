@@ -1,0 +1,56 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+ .box {
+     /* 给父盒子设置成绝对定位 */
+     position: relative;
+     width: 520px;
+     height: 300px;
+     border:10px solid aquamarine;
+     margin: 0 auto;
+     margin-top: 100px;
+     overflow: hidden;
+
+ }
+ .box .uls {
+     /* 子绝父相，儿子设定绝对定位 长度设置可以放的下需要的图片数量 */
+    position:absolute;
+    width: 3120px;
+    height: 300px; 
+ }
+ .box .uls li {
+     /* 设置浮动，让li元素浮动起来 */
+     float: left;
+     list-style: none;
+ }
+ .box .uls li img {
+    width: 520px;
+    height:300px;
+ }
+ .box .uls2 {
+     /* 设置底下的小跳转框，绝对定位的时候，
+     可以通过left：50% ，margin-left：盒子一半的宽度来实现居中 */
+     position: absolute;
+     bottom: 20px;
+     left: 50%;
+     margin-left: -135px;
+     height: 20px;
+     width: 270px ;
+
+ }
+   .box .uls2 li {
+       /* 给底下的小框框设置透明度和圆角 */
+   float: left;
+   width: 25px;
+   height: 10px;
+   border-radius: 5px;
+   margin: 0px 10px;
+   background-color: rgba(0,0,0,0.5);
+   list-style: none;
+   cursor: pointer;
+ }
+ /* 如果点击到有这个类就删除，没有就添加 */
+ .change {
+    background-color: darkblue !important;  /*增加权重*/
+ }

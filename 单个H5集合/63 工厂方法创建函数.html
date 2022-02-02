@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>工厂方法创建函数</title>
+</head>
+<body>
+	<script>
+    function total (name,age,gender) {
+
+    	let obj = {
+
+    		name: name ,
+    		age: age ,
+    		gender: gender ,
+    		sayName: function () {
+
+    			alert(this.name);
+    		}
+
+    		
+ 
+    	};
+    	  return obj;
+    }
+
+    let obj2 = total("猪八戒",25,"男");
+    console.log(obj2);
+    // obj2.sayName();
+
+    
+    
+
+
+	</script>
+	
+</body>
+</html>

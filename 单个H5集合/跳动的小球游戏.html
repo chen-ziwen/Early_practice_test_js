@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>跳动的小球游戏</title>
+</head>
+<style>
+
+    #qiu {
+        position: absolute;
+        left: 30%;
+        top: 50%;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: red;
+
+    }
+    #box {
+        position: relative;
+        width: 1200px;
+        height: 700px;
+    }
+    #bigbox {
+        position: relative;
+        width: auto;
+        height: auto;
+        background-color: blue;
+    }
+
+</style>
+
+<body>
+    <div id="bigbox"> 
+    <div id="box"></div>
+    <div id="qiu"></div>
+    </div>
+   
+    <script>
+        window.onload = function () {
+            let qiu = document.getElementById("qiu");
+            let box = document.getElementById("box");
+            //小鸟对象
+            let brid = {
+             speed : 3,
+             qiuint : null,
+             tiaoint : null,
+            //按下空格键小球开始下移
+             diao(event) {
+               
+                clearInterval(brid.qiuint)
+                if (event.keyCode == 32) {
+                    brid.qiuint = setInterval(() => {
+                        qiu.style.top = qiu.offsetTop + brid.speed + "px";
+                        if (qiu.offsetTop >= 650) {
+                            qiu.style.top = 650 + "px"
+                            clearInterval(brid.qiuint);
+                            qiu.style.top = 325 + "px"
+                            let anxia = confirm("游戏结束");
+                            if(anxia) {
+                                alert("请继续加油哦")
+                            }
+                            else {
+                                alert("一点毅力都没有，真是个废物")
+                            }
+                            
+                        }
+                    }, 10)
+                }
+            },
+            // 按下空格键小球往上跳动 
+             tiao(event) {
+                let i = 0;
+                clearInterval(brid.tiaoint)
+                if (event.keyCode == 32) {
+                   brid.tiaoint = setInterval(() => {
+                        qiu.style.top = qiu.offsetTop - brid.speed * 4 + "px";
+                        i++;
+                        if (i>12) {
+                            clearInterval(brid.tiaoint);
+
+                        }
+                        if (qiu.offsetTop <= 0) {
+                            // 碰到顶部的时候，让top偏移值归0
+                            qiu.style.top = 0+"px"
+                            
+                        }
+                    }, 10);
+
+                }
+            }
+        }
+            
+           
+            //定时隔创造出背景柱子，并移动它们，当移动的超出了一定的范围就把它删除
+            
+               
+                
+                 function createDiv (height,positiontype,left,top) {
+                    
+                    let newBlock = document.createElement("div");
+                    newBlock.style.width = 50+"px";
+                    newBlock.style.height = height+"px";
+                    newBlock.style.position = positiontype;
+                    newBlock.style.left = left +"px";
+                    newBlock.style.top = top +"px";
+                    newBlock.style.backgroundColor = "greenyellow";
+                    newBlock.className = "block"
+                    return newBlock;
+
+                 }
+                   
+                   
+                 function strblock () {
+                 let strint = null;
+                 let move = null;
+                 let count = 1200;
+                 let index = 0;
+                 clearInterval(strint);
+                 clearInterval(move);
+                 strint = setInterval(()=>{
+                     let x = Math.floor(Math.random()*450+50);
+                     let upblock = createDiv(x,"absolute",count,0);
+                     let downblock = createDiv(500-x,"absolute",count,200+x);
+                     box.appendChild(upblock);
+                     box.appendChild(downblock);
+                     index++;  
+                     count = 1200+index*300;
+                  } ,300);
+                 
+                  //背景移动
+                  move = setInterval(() => {
+                      box.style.left = box.offsetLeft -2+"px";
+                  }, 10);
+
+                 }
+                 strblock ();
+                
+                
+                
+                
+           
+
+            
+            document.addEventListener("keydown", brid.diao, false);
+            document.addEventListener("keydown", brid.tiao, false);
+
+            // document.onkeydown = function (event) {
+            //     console.log(event.keyCode);
+            // }
+            //定时生成管道
+
+            //背景移动
+
+            //小球的跳动
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+  <style>
+    .hello {
+        
+        /*1. display: inline-block; */
+        /* 2. margin: 0 auto; */
+        /* 3.margin-left: 50%;
+        transform: translate(-50%); */
+        
+        
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        
+    }
+    /* .one {
+        
+        width: auto;
+        text-align: center;
+        
+    } */
+     .one {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    } 
+  </style>
+  <script>
+      window.onload = function () {
+          for(let a =0 ;a<5; a++) {
+              console.log(a)
+          }
+      }
+  </script>
+<body>
+    <div class="one">
+    <div class="hello">
+
+    </div>
+</div>
+</body>
+</html>

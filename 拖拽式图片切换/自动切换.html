@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图片切换</title>
+    <style>
+      img {
+          width: 200px;
+          height: 200px;
+          border:1px solid #bfa;
+
+      }
+    </style>
+</head>
+<body>
+    <script>
+        window.onload = function () {
+            let p = ["1.jpeg", "2.jpeg", "3.jpeg", "4.jpeg", "5.jpeg", "6.jpeg", "7.jpeg", "8.jpeg", "9.jpeg"];
+            let tp = document.getElementsByTagName("img")[0];
+            let number = 0;
+            let apple = setInterval(()=>{let count = number++;
+                tp.src = p[count];
+                if(count >= p.length-1){
+                //  clearInterval(apple);
+                 number = 0 ;
+                }},100);
+              
+                //number++
+             // number = number % p.length 跟上面的循环一个意思
+        }
+    </script>
+     <img src="1.jpg" alt="">
+    
+</body>
+</html>

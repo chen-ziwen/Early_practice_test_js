@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件委派加强</title>
+</head>
+<style>
+    .box li {
+        float: left;
+        width: 150px;
+        height: 25px;
+        background-color: blanchedalmond;
+        margin-left: 30px;
+        list-style: none;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-align: center;
+        cursor: pointer;
+
+    }
+    textarea {
+        outline: none;
+        resize: none;
+    }
+</style>
+<body>
+    <ul class="box">
+        <li class="li1">点击我我会像你表白</li>
+        <li class="li2">点击我我会骂你</li>
+        <li class="li3">点击我我请你吃饭</li>
+        <li class="li4">点击我我告诉你秘密</li>
+    </ul>
+    <textarea name="text" id="" cols="30" rows="10">
+        jjjjjjjjjjjjjjj
+        kkkkkkkkkkkkkkk
+        kkkkkkkkkkkkkkk
+        kkkkkkkkkkkkkjj
+        jjjjjjjjjjjjjjj
+        jjjjjjjjhhhhhhh
+        hhhhhhhhhhhhhhh 
+    </textarea>
+    <script>
+        window.addEventListener("load",(event)=>{
+         let uls = document.getElementsByTagName("ul")[0];
+
+         function han (event) {
+            switch(event.target.className){
+             case "li1": 
+             alert("我喜欢你");
+             break;
+             case "li2":
+             alert("你是个大傻逼");
+             break;
+             case "li3":
+             alert("明天你的晚饭我包了");
+             break;
+             case "li4":
+             alert("其实你是个好人");
+             break;
+         }
+         }
+         uls.addEventListener("click",han,false) //前面必须绑定一个元素
+        });
+    </script>
+</body>
+</html>

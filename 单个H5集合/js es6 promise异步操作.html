@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promises</title>
+</head>
+
+<body>
+    <script>
+        //Promise的回调函数参数为两个形参，调用第一个代表执行成功，第二个代表执行失败
+        //promise本身就是个双层回调函数，它以两个回调函数作为参数
+        //因为当我们要决定回调函数的执行顺序的话，就必须用到回调函数嵌套，回调函数嵌套回引起回掉地狱
+        const yibu = new Promise((reslove, reject) => {
+            setTimeout(() => {
+                reslove("成功了");
+                // reject("失败了")
+            }, 1000);
+        });
+
+        //promise自带then方法，参数为两个函数，执行成功调用第一个，失败调用第二个
+        //value的值是reslove和reject里面的内容
+       
+
+        //promise.prototype.then then方法在原型对象中
+         
+        /*then方法有回调两个函数作为参数，
+        第一个函数的参数接收reslove回调函数的参数，
+        第二个函数的参数接收reject回调函数的参数
+       调用then方法，then方法返回的是Promise对象，对象状态由回调函数的执行结果决定。
+        */
+        yibu.then(value => { //value是then方法成功函数的参数，它也是reslove的参数
+            console.log(value);// 成功了
+            return new Promise((reslove)=>{
+               reslove("hahah");
+            })
+
+        }, reson => {
+            console.error(value);
+        })
+        
+        //数据类型测试，终于搞明白了 ，new(内容)，其实就是把把内容赋值给实例化的对象
+        let per = new Promise(function(a,b){});
+        console.log(per instanceof Array,typeof per,per);
+        function e() {}
+        let a = new Object(["我爱你", 1, 2, 3, 4, 5, 6, "你不喜欢"])
+        console.log(a instanceof Array, a,a[0]);
+        // console.log(a[0]);
+        let b = new Array("你怎么这么好看", "123木头人")
+        console.log(typeof b, b)
+        let c = [];
+        console.log(c instanceof Function) //对象类型的检测
+
+        ///
+        var person = new Object();
+        person.name = "tom";
+        person.age = 23;
+        person.sayHi = function () {
+            console.log("Hello World!");
+        }
+        console.log(person instanceof Function)
+        
+       
+    </script>
+</body>
+
+</html>

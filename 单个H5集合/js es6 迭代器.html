@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <button class="btn">点击我触发</button>
+    <title>js es6 迭代器</title>
+</head>
+<style>
+    p {
+        line-height: 30px;
+        font-size: 20px;
+        font-weight: 400;
+
+    }
+</style>
+
+<body>
+    <script>
+        window.onload = function () {
+            let hhh = document.createElement('div')
+    // document.createTextNode
+    let jj = document.createTextNode('你在干涉么')
+    hhh.appendChild(jj)
+
+    hhh.style.cssText = 'height:300px;width:300px;border-radius:150px ;background-color:red'
+    let Total = document.getElementById('Total')
+    Total.appendChild(hhh)
+    hhh.setAttribute('class','chiko')
+
+        }
+        //ES5迭代器实现原理，这个时候还没封装迭代器，得自己实现！！！
+     
+        // function createIterator(items) {
+        //     var i = 0;
+        //     return {
+        //         next: function () {
+        //             var done = (i >= items.length); //这两步很巧妙 
+        //             //这个是针对数组的迭代器，如果是集合或映射，把length改成size
+        //             var value = !done ? items[i++] : undefined;
+        //             return {
+        //                 done: done,
+        //                 value: value
+        //             };
+        //         }
+        //     };
+        // }
+        // let btn = document.querySelector('.btn');
+        // // btn.onclick = function() {
+        // // for(let i =0 ;i<5;i++) {
+        // //     console.log(i)
+        // // }
+        // // } 
+        // btn.addEventListener('click',()=>{
+        //     for(let i =0 ;i<5;i++) {
+        //     console.log(i)
+        // }
+        // document.addEventListener('keydown',(e)=>{
+        // if(e.key=='s') {
+        //     console.log('我是s')
+        // }
+        // })
+    //    document.getElementById 单个元素
+    //    document.getElementsByClassName 伪数组
+    //    document.getElementsByTagName 伪数组
+    //    document.getElementsByName 伪数组
+    //    document.querySelector  单个css选择器元素
+    //    document.querySelectorAll 伪数组
+    //   伪数组.form() 可以转换为真数组
+   
+    // btn.parentElement
+    // btn.parentNode
+    // btn.childNodes
+    // btn.nextSibling
+    // btn.previousSibling
+    // btn.appendChlid
+    // btn.replaceChild
+    // btn.removeChild
+    // btn.getAttribute
+    // btn.setAttribute
+    // btn.parentNode
+    // btn.createElement()
+    //     })
+        // var iterator = createIterator([1, 2, 3]);
+        // console.log(iterator.next()); // "{ value: 1, done: false }"
+        // console.log(iterator.next()); // "{ value: 2, done: false }"
+        // console.log(iterator.next()); // "{ value: 3, done: false }"
+        // console.log(iterator.next()); // "{ value: undefined, done: true }"
+        // // 之后的所有调用
+        // console.log(iterator.next()); // "{ value: undefined, done: true }"
+
+
+        // //自己手动写出ES5迭代器的实现代码
+        // let arrays = [1, 2, 3, 4];
+
+        // function iterator(arrays) {
+        //     let i = 0;
+        //     return {
+        //         next: function () {
+        //             if (i < arrays.length) {
+        //                 var value = arrays[i++];
+        //                 var done = false;
+                       
+        //             } else {
+        //                 value = undefined;
+        //                 done = true;
+        //             }
+        //             return {
+        //                 value: value,
+        //                 done: done
+        //             }
+        //         }
+        //     }
+        // }
+        // let a = iterator();
+        // console.log(a.next());
+        // console.log(a.next());
+        // console.log(a.next());
+        // console.log(a.next());
+        // console.log(a.next());
+
+        console.log("_____________ES5和ES6迭代器分界线________________________");
+
+        //ES6迭代器 js封装好了迭代器，很好用
+
+        //遍历字符串
+        // let a = "abcdefg"
+//         let way = a[Symbol.iterator]() //调用symbol.iterator方法,这个方法里有next函数
+// +
+//         console.log(way); //StringIterator类型迭代器
+
+//         console.log(way.next()); // {value: "a", done: false}
+
+//         /*返回一个对象，有两个属性一个是value：a ，
+//         一个是done：false (代表字符串还没遍历完)*/
+
+//         console.log(way.next()); //{value: "b", done: false}
+
+        /*返回一个对象，有两个属性一个是value：b ，
+        一个是done：false (代表字符串还没遍历完)*/
+
+
+        //遍历集合 集合的键和值相等
+
+        // let set = new Set([1, 2, 3, 4]);
+        // set.add("你好")
+        // set.delete(2);
+        // console.log(set.has(2)); //2被删掉了，所以返回false
+        // console.log(set); //Set(4) {1, 3, 4, "你好"}
+
+        // //开始用迭代器遍历
+        // let die = set[Symbol.iterator](); //调用完是个定时器
+
+        // console.log(die); //SetIterator类型迭代器
+
+        // console.log(die.next()); // {value: 1, done: false}
+        // console.log(die.next());
+        // console.log(die.next());
+        // console.log(die.next());
+
+        // console.log(die.next());
+        // //总共四个值调用五次后返回 {value: undefined, done: true} true代表遍历结束
+
+        // //映射遍历
+        // let map = new Map([
+        //     ["姓名：", "陈子文"],
+        //     ["年龄：", "22"],
+        //     ["是否单身", "是"]
+        // ]);
+        // console.log(map);
+        // let diedai = map[Symbol.iterator]();
+
+        // /*
+        // 什么类型的数据调用symbol.iterator
+        // 出来的就是什么类型的迭代器*，因为它是一个变量，所以用[]来调用
+        // */
+
+        // //输出方法
+        // console.log(diedai); //MapIterator类型迭代器
+        // console.log(diedai.next()); //{value: Array(2), done: false} 返回一个数组值
+
+        // //*****题目： 遍历obj中的b属性！
+
+        // const obj = {
+        //     name: "陈子文",
+        //     age: "18",
+        //     b: ["你好", "不好", "离谱"]
+        // }
+
+        // //for of 方法 *不要这种方法
+        // for (let a of obj.b) {
+        //     console.log(a);
+        // }
+
+        // //迭代器方法
+        // let dway = obj.b[Symbol.iterator]();
+        // console.log(dway.next().value);
+        // // next()调用一次，就是值往后迭代一位 ，长度为四的数组，需要调用四次next(),才能迭代完。
+        // console.log(dway.next().value); //.value的意思是拿出返回值里的value
+        // console.log(dway.next().value);
+    </script>
+    <p> 迭代器是一种特殊对象，它具有一些专门为迭代过程设计的专有接口，
+        所有的迭代器对象都有一个next()方法，每次调用都返回一个结果对象。
+        结果对象有两个属性：一个是value，表示下一个将要返回的值；
+        另一个是done，它是一个布尔类型的值，当没有更多可返回数据时返回true。
+        迭代器还会保存一个内部指针，用来指向当前集合中值的位置，每调用一次next()方法，
+        都会返回下一个可用的值
+    </p>
+    <p>
+        如果在最后一个值返回后再调用next()方法，那么返回的对象中属性done的值为true，
+        属性value则包含迭代器最终返回的值，这个返回值不是数据集的一部分，
+        它与函数的返回值类似，是函数调用过程中最后一次给调用者传递信息的方法，
+        如果没有相关数据则返回undefined
+    </p>
+    <div id="Total">
+        
+    </div>
+</body>
+ <style>
+     .chiko {
+         font-size: 100px;
+     }
+ </style>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        .apple {
+
+            width: 200px;
+            height: 200px;
+            background-color:crimson;
+        }   
+        button {
+            width: 100px;
+            height: 40px;
+            background-color: darkcyan;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="apple"></div>
+    <button type="" id="btn">我爱你</button>
+    <script>
+        let btn = document.getElementById("btn");
+        let div1 = document.querySelector("div");
+      btn.onclick = function () {
+          //修改内联样式
+          //元素.style.属性 = "属性值"
+            div1.style.width = "400px";
+            div1.style.height = "400px";
+            div1.style.backgroundColor = "yellow";
+        };
+        
+
+        /*
+        - IE8 其他浏览器不支持
+			- 使用currentStyle 读取当前正在显示的样式，当前没有设置改样式获取样式默认值。
+
+            正常浏览器
+			- 使用getComputedStyle()
+			- 这个方法是window对象的方法，可以返回一个对象，这个对象中保存着当前元素生效样式
+            */
+
+            //ie8的兼容性问题 思路以及简单的方法。
+        function getStyle (obj,name) {
+         if(window.getComputedStyle){
+            getComputedStyle(obj,null)[name];
+        }
+        else {
+            obj.currentStyle[name];
+        }
+        }
+    </script>
+</body>
+</html>

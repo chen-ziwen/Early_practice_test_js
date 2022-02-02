@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>es6 模块化引入</title>
+</head>
+<body>
+    <script type="module">
+        // 1.通用导入方式
+        // 原生js中导入的文件后缀必须写上.js,例如Vue就不用写
+
+        import * as m1 from "./m1.js" //竟然是这么写 记好了 试错试了好久才写对
+        console.log(m1);
+        import * as m2 from "./m2.js"
+         console.log(m2.default.hello());
+
+        // 2.解构赋值形式
+        // import {mod,obj} from "./m1.js"
+        // console.log(mod,obj);
+        // import {mod as mods,obj} from "./m1.js"  //重新命名mod
+        // console.log(mods,obj);
+        // import {default as m2} from "./m2.js"//default必须改名字才能用
+        // console.log('@@@@@',m2);
+
+        // // 3.简便形似 只针对于默认暴露
+        //   import m2 from "./m2.js"
+        //   console.log(m2);
+
+    </script>
+    
+    <!-- <script src="app.js" type="module"></script> 另一种引入方式,相当于集合体 -->
+</body>
+</html>

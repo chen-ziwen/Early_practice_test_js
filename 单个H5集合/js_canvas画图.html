@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js canvas画图</title>
+    <style>
+     
+    </style>
+</head>
+<body>
+    <canvas id="drawing"  width="1300"  height="800" style="border: 1px solid black;" ></canvas>
+        <!-- 画画的北北，天才的小野马和带刺的玫瑰 -->
+      </canvas>
+    <script>
+        window.onload = function () {
+        let drawing = document.getElementById("drawing");
+        //确保浏览器支持Canvas
+              if (drawing.getContext) {
+             let context = drawing.getContext("2d");
+            //  context.strokeStyle ="black";
+            //  context.fillStyle = "#0000ff"  这个两个代表了填充和描边
+
+             context.strokeStyle = "red"
+             context.strokeRect(500,70,50,50) //两种绘画方式，一种描边一种填充
+
+             context.fillStyle ="#bfa"
+             context.fillRect(150,150,100,100);
+             //前面是坐标，后面是宽高
+
+             context.fillStyle ="blue"
+             context.fillRect(60,60,50,50);
+             context.clearRect(75,75,20,20) //在蓝色矩形中居中，清除一块区域
+
+             //绘制圆
+             context.beginPath();
+             context.strokeStyle ="black";
+             context.translate(200,200); // translate 设定一个坐标为起始点
+             context.arc(0,0,50,0,2*Math.PI);
+             context.stroke();
+             
+             context.arc(0,0,45,0,2*Math.PI)
+             context.fillStyle = "pink"
+             context.fill();
+             
+             context.beginPath(); //创建路径必须写beginPath()
+             context.strokeStyle = "#bfa"
+             context.lineWidth = 8;
+             context.strokeRect(440,100,100,100);
+
+             //画一条45度的斜线
+             context.moveTo(300,150);
+             context.lineTo(400,250);
+             context.stroke(); // 通过路径写的东西必须用stroke()或者fill()来描画路径
+            
+
+             context.beginPath(); 
+             context.lineWidth = 1;
+             context.strokeStyle = "black"
+             context.arc(300,300,10,0,2*Math.PI)
+             context.fill();
+            //  context.translate(300,300);
+            context.moveTo(500,300)
+             context.arc(300,300,200,0,2*Math.PI);
+             context.moveTo(480,300); 
+             // moveTo把光标移动到（x,y）,不然的画圆嵌套的时候，路径没有断，两个圆会出现连接点
+             context.arc(300,300,180,0,2*Math.PI);
+
+             //分针
+             context.moveTo(300,300);
+             context.lineTo(300,140);
+             context.moveTo(300,300);
+            //时针
+             context.linerWidth =5;
+             context.lineTo(430,300);
+             context.translate(300,300);
+             context.rotate(1);
+            
+
+             
+             context.stroke();
+     
+            }
+         }
+            
+    </script>
+    
+</body>
+</html>

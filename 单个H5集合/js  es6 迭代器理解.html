@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>迭代器for of</title>
+</head>
+
+<body>
+    <script>
+        const a = ["爸爸", "妈妈", "姐姐", "我"];
+        const b = [1,2,3,4,5,6];
+        const c = {};
+        const d = new Function;
+        const e = Symbol();
+        console.log(...a,...b); //拼接数组
+
+        //for in 返回的是遍历后的数组索引
+        for (let eat in a) {
+            console.log(eat)
+        }
+         //0，1，2，3
+
+        //for of 返回的遍历后的属性值        
+        for (let eat2 of a) {
+            console.log(eat2)
+        }
+        //爸爸，妈妈，姐姐，我
+
+        let iterator = a[Symbol.iterator]();
+        console.log("-----------------------------")
+        console.log(iterator);
+        console.log("-----------------------------")
+         
+        console.log("-----------------------------")
+        console.log(a);
+        console.log("-----------------------------")
+        console.log(c);
+        console.log(d);
+        console.log(e);
+         
+        //这种返回一个数组
+        let array = [52, 5, 7, 4, 24, 25, 18];
+        let ab = array.map(i =>i+5);
+        console.log(ab);
+        //这种需要一个值去接收
+        // array.map(i=>console.log(i+5)) 这种可以直接返回数值
+
+        
+        //返回一个新的数组，通过b去输出，加...可以直接拆分数组
+        console.log("---------------------------------------")
+        let g = array.filter(j =>j>10);
+        console.log(...g);
+        
+                
+           
+    </script>
+</body>
+
+</html>

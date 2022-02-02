@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>div块跟随</title>
+    <style>
+
+        body {
+            overflow: auto;
+        }
+        
+        #change {
+            width: 480px;
+            height: 700px;
+            background-color: yellow;
+            text-align: center;
+            position: fixed;
+            left: 200px;
+            top: 100px;
+            
+        }
+
+        #change img {
+            width: 450px;
+            height: 620px;
+            border-radius: 40px;
+
+        }
+
+        #change button {
+            background-color: lightblue;
+            padding: 5px 5px;
+            margin: 0px 20px;
+        }
+        #pp {
+            width: 200px;
+            height: 200px;
+            background-color: #bfa;
+            position:absolute;
+            left: 800px;
+            line-height: 100px;
+            text-align: center;
+            background-size: 200px 200px;
+            color: deeppink;
+            animation: mymove 5s infinite;
+
+
+            
+        }
+        @keyframes mymove {
+        from {background-color: red;}
+         to {background-color: rgba(0, 183, 255, 0.705);}
+      }
+        #px {
+            width:200px;
+            height: 200px;
+            background-color:cyan;
+            position:absolute;
+            left: 1100px;
+            line-height: 100px;
+            text-align: center;
+            background-size: 200px 200px;
+            color: deeppink;
+            
+            
+        }
+    </style>
+</head>
+
+<body>
+    <div id="change">
+         
+        
+        <img src="1.jpeg" alt="图片已丢失" id="pic">
+        <button id="btn1">切换上一张</button>
+        <button id="btn2">切换下一张</button>
+        <p id="count">这是第1张图片</p>
+
+    </div>
+      <p id="pp">我爱你</p>
+      <p id="px">我不喜欢你</p>
+      
+
+
+    <script>
+
+        /*必须先获取到change这个实参   total函数才能调用 
+        所以这个获取形参的代码不能写到函数里面去*/
+        let change = document.getElementById("change");
+
+        let pp = document.getElementById("pp");
+
+        let px = document.getElementById("px");
+
+        total(change);
+        total(pp);
+        total(px);
+
+       pp.onmouseup = function () {
+           pp.style.backgroundImage = "url(2.jpg)";
+           
+           alert("是的！我很喜欢你！！！");
+        //    pp.onmouseup = null ;
+       }
+       px.onmouseup = function () {
+        px.style.backgroundImage = "url(3.jpg)";
+           alert("怎么会，怎么会不喜欢宝贝呢");
+           px.innerText = "我其实特别喜欢你";
+        //    px.onmouseup = null ;
+       }
+       
+
+
+
+        function total (obj) {
+
+        obj.onmousedown = function () {
+
+            let ai = event.clientX - obj.offsetLeft;
+            let bi = event.clientY - obj.offsetTop;
+
+            document.onmousemove = function (event) {
+
+                event = event || window.event;
+
+                let a = event.clientX - ai + "px";
+                let b = event.clientY - bi + "px";
+                // let a = event.clientX +"px";
+                // let b = event.clientY +"px";
+
+
+                //通过内联样式去修改图片本身的偏移量 
+                obj.style.left = a;
+                obj.style.top = b;
+                // event.pageX =event.pageX+"140px";
+                // event.pageY =event.pageY+"170px";
+
+            };
+
+
+            document.onmouseup = function () {
+
+                //取消鼠标的onmousemove事件
+                document.onmousemove = null;
+
+                //也取消onmouseup的事件
+                document.onmouseup = null;
+
+                //   alert("已放置");
+
+            };
+            取消浏览器的推拽搜索行为
+            return false;
+        };
+        }
+        
+ 
+        let btn1 = document.getElementById("btn1");
+        let btn2 = document.getElementById("btn2");
+        let img = document.getElementsByTagName("img")[0];
+        
+        let p = ["1.jpeg", "2.jpeg", "3.jpeg", "4.jpeg", "5.jpeg", "6.jpeg", "7.jpeg", "8.jpeg", "9.jpeg"];
+        let i = 0;
+
+        btn1.onclick = function () {
+
+            if (i <= 0) {
+                i = 8;
+            }
+            else {
+                i--;
+            }
+            //利用getElmentsByTagName()实现
+            img.src = p[i];
+            document.getElementById("count").innerHTML = "这是第" + (i + 1) + "张图片";
+
+        };
+        //利用getElmentById()实现
+        //元素.属性名可以直接获取属性值
+        btn2.onclick = function () {
+            if (i >= 8) {
+                i = 0;
+            }
+            else {
+                i++;
+            }
+
+            img.src = p[i];
+            document.getElementById("count").innerHTML = "这是第" + (i + 1) + "张图片";
+        };
+
+         
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+      //当我们直接在页面上打印一个对象时，事实上是输出的对象的toString()方法的返回值
+      
+
+      //如果我们希望输出对象的时候不输出[object Object]，可以为对象添加一个toString（）方法
+       function fun () {
+
+       }
+
+       let obj = new fun();
+       
+       obj.__proto__.toString = function () {
+       /*输出toSting方法的返回值*/	return "我爱你包尔博";
+       }
+       console.log(obj.toString());
+       
+	</script>
+</body>
+</html>

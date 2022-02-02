@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js总复习字符串方法</title>
+</head>
+<body>
+     <script>
+         /*includes()检查字符串中是否含有某个字符串，返回布尔值 
+          startsWith(abc) 检查开始于abc的匹配项 
+          endsWith(abc) 检查末尾为abc的匹配项*/
+
+         // trim() 删除字符串中的空字符
+         let a = "我不是一个小孩," // length = 8 ;
+         let a1 = "abcdefg"
+         let b = "我今年已经15岁了"
+         let c = a.concat(b); //这个方法这么用,拼接字符串
+         let d = a.charAt(5); //返回给定索引的字符 /小
+         let e = a.concat("其实你就是小孩"); //也可以这么拼接
+         let f = a.indexOf("不"); //返回索引，为1
+         let g = a.repeat(3)+"我复制了三次" // 加上原始的字符串等于三次，加上后面的字符串
+         let h = a.padStart(15,"1"); //1111111我不是一个小孩,  //超出字符串长度7，在字符串前用1补全
+         let i = a.padEnd(15,"1"); //我不是一个小孩,1111111    //超出字符串长度7，在字符串前后1补全
+         let j = a1.toUpperCase(); //转换为大写
+         let k = j.toLowerCase();
+         console.log(c)
+         console.log(d)
+         console.log(e)
+         console.log(f)
+         console.log(g)
+         console.log(h)
+         console.log(i)
+         console.log(j)
+         console.log(k)
+         const he = [1,2,3,4,5]
+         //赋值
+         const he1 = he;
+         console.log(he === he1,he1,he1 instanceof Array) //1.true
+         //浅拷贝
+         const he2 = Array.from(he) 
+         console.log(he === he2,he2,he2 instanceof Array) //1. false
+     </script>
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原生js记事本案例</title>
+</head>
+<style>
+    .box {
+        margin: 100px auto;
+        width: 515px;
+        height: auto;
+        border: 1px solid rgb(0, 0, 0, .3);
+
+
+    }
+
+    input[type='text'] {
+        transform: translate(25px, 10px);
+        margin-top: 10px;
+        width: 435px;
+        height: 40px;
+        outline: none;
+        border: 1px solid rgb(0, 0, 0, .3);
+
+    }
+
+    li {
+        list-style: none;
+    }
+
+    .uls {
+        padding: 0px;
+        transform: translate(25px, 10px);
+        height: auto;
+    }
+
+    .uls li {
+        position: relative;
+        width: 435px;
+        padding: 10px;
+        border: 1px solid rgb(0, 0, 0, .3);
+
+    }
+
+    .uls li:nth-of-type(n+2) {
+        border-top: none;
+    }
+
+    button {
+        display: none;
+        position: absolute;
+        right: 5px;
+        top: 5px;
+        height: 30px;
+        outline: none;
+        background-color: #da4f49;
+        border-radius: 10px;
+        color: white;
+
+    }
+
+    li:hover {
+        background-color: lightskyblue;
+    }
+
+    h2 {
+        display: block;
+        transform: translate(25px);
+    }
+
+    li:hover button {
+        display: block;
+    }
+</style>
+
+<body>
+    <script>
+        window.addEventListener('load', (event) => {
+
+            let i = 2,
+                j = 0,
+                int2, btn;
+            const int1 = document.getElementsByTagName('input')[0],
+                uls = document.querySelector('.uls'),
+                sp = document.getElementsByClassName('sp')[0],
+                spa = document.getElementsByClassName('spa')[0],
+                lis = document.getElementsByTagName('li');
+            // console.log(int1,uls,sp,spa,lis)  这样获取的都是真实dom
+            int1.onkeydown = function (event) {
+                if (event.key === 'Enter') {
+                    const ele = document.createElement('li');
+
+                    if (int1.value.trim() == "") { //排除前后空格的情况
+                        alert("请输入内容")
+                    } else {
+                        ele.innerHTML = `<input type="checkbox" name="hello" value="">
+                  ${int1.value}<button>删除任务</button>`;
+                        uls.appendChild(ele);
+                        i++;
+                        sp.innerText = i;
+
+                    }
+                    int1.value = "";
+
+                }
+            }
+
+
+            //事件委派 给li的父亲ul添加上键盘事件 再通过target来限制
+            uls.onmousedown = function (event) {
+
+                int2 = document.querySelectorAll('input[name="hello"]');
+                btn = document.getElementsByTagName('button');
+
+                if (event.target.name == 'hello') { //只有点击的name为hello的控件才有反应
+                    for (let i = 0; i < int2.length; i++) {
+                        int2[i].onclick = function () {
+                            if (int2[i].checked) {
+                                j++;
+                                lis[i].style.backgroundColor = "rgba(0,0,0,0.2)";
+                                btn[i].innerText = '清除已完成的任务';
+                            } else {
+                                j--;
+                                lis[i].style.backgroundColor = "rgba(0,0,0,0.05)";
+                                btn[i].innerText = '删除任务';
+                            }
+                            spa.innerText = j;
+                        }
+                    }
+                }
+
+
+                for (let k = 0; k < btn.length; k++) {
+                    btn[k].onmouseup = function () {
+                        //对有多选框是否选中做判断 ,如果没选中直接删除 
+                        //选中了则让j--，j重新赋值给html再删除
+                        const pan = confirm("是否确认删除")
+                        //如果pan为true的话 执行下面的代码 ，否则不执行
+                        if (pan) {
+                            if (!int2[k].checked) {
+                                lis[k].remove(); //删除dom操作
+                                //uls.removeChild(lis[j])  //语法 ： 父节点.removeChild(子节点)
+                            } else {
+                                j--;
+                                spa.innerText = j;
+                                lis[k].remove();
+                            }
+                            i--;
+                            sp.innerText = i;
+                        }
+
+                    }
+                }
+            }
+        }, false)
+    </script>
+
+    <div class="box">
+        <input type="text" placeholder="请添加任务 , 按下回车键确认" style="padding-left: 15px;">
+        <ul class="uls">
+            <li><input type="checkbox" name="hello" value=""> 打代码<button>删除任务</button></li>
+            <li><input type="checkbox" name="hello" value=""> 打游戏<button>删除任务</button></li>
+        </ul>
+        <h2>已完成<span class="spa">0</span> /全部<span class="sp">2</span> /选择过的任务会变色标记</h2>
+
+    </div>
+</body>
+
+</html>

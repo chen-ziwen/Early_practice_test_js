@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js 高级5</title>
+</head>
+<body>
+    <script>
+        // let a = {age:18};
+        // function ab (obj) {
+        //    obj = {age : 5};
+        //    console.log(obj.age)
+        // }
+        // ab(a); // 5
+        // console.log(a.age); // 18 
+        // //外面访问不到函数内部的值，所以函数内部的赋值对外部来说只是一个局部变量
+
+        // const b = 15; // 内部和外部虽然都定义了b 但是不是在一个内存空间中的 所以不会相互影响
+        // function abc () {
+        //     const b = 13;
+        //     alert(b);
+        // }
+        // abc();
+        // alert(b);
+        // //
+
+        // var a = 3;
+        // function fn (a) { //不传参数 结果是4
+        //     a = a+1
+        // }
+        // fn(a);
+        // console.log(a); //传a 过去结果是3
+        
+        console.log("————————————————————————————————————————");
+        //因为obj里面保存了地址，赋值是把自身的内容赋值给其他对象，然而对象的内容是个地址
+        let obj = { name : "陈子文",age : 21};
+        let obj2 = obj ;
+        obj2 = {}; // 这么做可以切断obj2指向的原有地址
+        obj2.name = "陈子龙"; // 没有切断的话，属性值会被修改
+        console.log(obj.name); //因为两个对象的地址一致 ，所以改变obj2也改变了obj中的属性
+        
+        console.log("————————————————————————————————————————");
+        // 变量是相互独立的，赋值的时候其实都是把自身的内容拷贝给其他变量
+         
+    </script>
+</body>
+</html>

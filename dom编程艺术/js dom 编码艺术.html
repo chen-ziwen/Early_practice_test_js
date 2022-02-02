@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom 编码艺术</title>
+</head>
+<style>
+    li {
+        cursor: pointer;
+        list-style: none;
+    }
+</style>
+<body>
+    <script>
+     window.onload = function () {
+        //  let p = document.getElementsByTagName("p")[0];
+         let lis = document.getElementsByTagName("li");
+            // alert(p.getAttribute("apple"));
+
+            // p.setAttribute("id","i_am_p")
+             //获取某个元素节点的属性值，参数是属性。所有的属性都可以。包括自己命名的属性
+            //  alert(p.getAttribute("id"));
+            let image = document.getElementById("image");
+            let thisp = document.getElementById("thisp");
+             
+            for(let i=0;i<lis.length;i++) {
+                lis[i].addEventListener("click",()=>{
+                 let apple = lis[i].getAttribute("href");
+                 image.setAttribute("src",apple);
+                 let tit = lis[i].getAttribute("title");
+                 thisp.nodeValue = tit
+                  /*会获取一个空值，因为获取到的是p这个元素本身的value值，
+                  而我们需要获取的是p的第一个文本节点*/
+                 thisp.firstChild.nodeValue = tit; //这样写才可以获取p中第一个子节点值
+
+                
+                },false)
+            }pp
+
+
+     } 
+    </script>
+    <!-- <p style="position: absolute;font-size: 16px;" apple="nihao"></p> -->
+     <h1>图片展示</h1>
+     <ul>
+         <li href="a1.png" title="这张图片很丑">  第一张</li>
+         <li href="a2.jpeg" title="这张图片一般" > 第二张</li>
+         <li href="a3.jpeg" title="这张图片还行"> 第三张</li>
+         <li href="a4.jpg" title="这张图片很好"> 第四张</li>
+     </ul>
+        <img src="a1.png" id="image" style="width: 200px; height: 200px;" >
+        <p id="thisp">这是我对图片的评价</p>
+</body>
+</html>

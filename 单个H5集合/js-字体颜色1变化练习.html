@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>字体颜色变换</title>
+</head>
+   <style>
+   p {
+   	 font-size: 50px;
+   	 padding: 20px;
+   	 border: none;
+   	 color: blue;
+   	 background-color: white;
+   
+   }
+    
+   </style>
+<body>
+		<p>点击我会变色哦！</p>
+	<script>
+       let btn = document.getElementsByTagName("p")[0];
+       let i = 0;
+       btn.onclick = function () {
+       	i++;
+       if (i%2==0) {
+       btn.style.color = 'red';
+       }
+        else if (i%3==0){
+       	btn.style.color = 'yellow';
+       }
+       else {
+       	btn.style.color = 'green';
+       }
+       }
+   
+	</script>
+</body>
+</html>

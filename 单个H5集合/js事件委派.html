@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件的委派</title>
+    <style>
+
+        #btn {
+            width: 100px;
+            height: 50px;
+
+        }
+    </style>
+    <script>
+        window.onload = function () {
+        //   let Alla = document.getElementsByTagName("a");
+        //   for (i =0 ; i<Alla.length ; i++) {
+        //       Alla[i].onclick = function () {
+               
+
+        //           alert ("我爱你");
+        //       };
+        //   }
+         let uls = document.getElementById("uls");
+         uls.onclick = function (event) {
+            if (event.target.className =="ap")//event.target是目标事件的意思
+            alert ("我爱你");
+
+         };
+
+          let btn = document.getElementById("btn");
+
+          btn.onclick = function () {
+            let lis = document.createElement("li");
+                lis.innerHTML = "<a href='#'' class ='ap'>点击跳转</a>"
+                uls.appendChild(lis) ;
+          };
+            
+        };
+    </script>
+</head>
+<body>
+     <button type="" id="btn">点击生成</button>
+    <ul id="uls">
+        <li><a href="#" class="ap">点击跳转</a></li>
+        <li><a href="#" class="ap">点击跳转</a></li>
+        <li><a href="#" class="ap">点击跳转</a></li>
+    </ul>    
+</body>
+</html>

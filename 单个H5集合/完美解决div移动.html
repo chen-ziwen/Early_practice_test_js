@@ -1,0 +1,100 @@
+
+
+    
+<!DOCTYPE html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#div1 {
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				position: absolute;
+				left: 100px;
+				top: 100px;
+			}
+		</style>
+
+        
+		<script type="text/javascript">
+			window.onload = function(){
+				//			↑:38
+			//			→:39
+			//			↓:40
+			//			←:37
+			//创建各个方向条件判断初始变量
+			var oDiv = document.getElementById('div1');
+			var left = false;
+			var right = false;
+			var top = false;
+			var bottom = false;
+ 
+			//当按下对应方向键时，对应变量为true
+			document.onkeydown = function(ev) {
+				var oEvent = ev || event;
+//				var oDiv = document.getElementById('div1');
+				//				alert(oEvent.keyCode);
+				var keyCode = oEvent.keyCode;
+				switch(keyCode) {
+					case 37:
+						left=true;
+						break;
+					case 38:
+						top=true;
+						break;
+					case 39:
+						right=true;
+						break;
+					case 40:
+						bottom=true;
+						break;
+				}
+			}
+				//设置一个定时，时间为50左右，不要太高也不要太低
+				setInterval(function() {
+					//当其中一个条件为true时，则执行当前函数（移动对应方向）
+					if(left) {
+						oDiv.style.left = oDiv.offsetLeft - 10 + "px";
+					} else if(top) {
+						oDiv.style.top = oDiv.offsetTop - 10 + "px";
+					} else if(right) {
+						oDiv.style.left = oDiv.offsetLeft + 10 + "px";
+					} else if(bottom) {
+						oDiv.style.top = oDiv.offsetTop + 10 + "px";
+					}
+				}, 20);
+ 
+				//执行完后，所有对应变量恢复为false，保持静止不动
+				document.onkeyup = function(ev) {
+					var oEvent = ev || event;
+					var keyCode = oEvent.keyCode;
+ 
+					switch(keyCode) {
+						case 37:
+							left = false;
+							break;
+						case 38:
+							top = false;
+							break;
+						case 39:
+							right = false;
+							break;
+						case 40:
+							bottom = false;
+							break;
+					}
+				}
+			}
+		</script>
+	</head>
+ 
+	
+		<div id="div1">
+ 
+		</div>
+	
+ 
+</body>
+</html>

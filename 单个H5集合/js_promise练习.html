@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js_promise练习</title>
+</head>
+
+<body>
+    <script>
+        //p331页要多看，很详细的分析
+        //promise实现异步操作
+        let a = new Promise(function (reslove, reject) {
+            setTimeout(function () {
+                reslove("我");
+            }, 1000)
+        }).then(function (value) {
+            console.log(value);
+            return new Promise((reslove, reject) => {
+                setTimeout(function () {
+                    reslove("是");
+                }, 4000)
+            })
+        }).then(function (value) {
+            console.log(value);
+            return new Promise((reslove, reject) => {
+                setTimeout(function () {
+                    reslove("陈子文");
+                }, 1000)
+            })
+        }).then(function (value) {
+            console.log(value)
+        })
+
+        //定时器从第三位参数开始，这些参数会作为定时器传入第一个函数的参数
+        function timeout(ms) {
+            return new Promise((resolve, reject) => {
+                setTimeout(resolve, ms, 'done');
+            });
+        }
+
+        timeout(100).then((value) => {
+            console.log(value);
+        });
+        </script>
+</body>
+
+</html>

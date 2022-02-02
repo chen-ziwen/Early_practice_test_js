@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原型的继承合集</title>
+</head>
+<body>
+    <script>
+
+        //原型链继承
+        function Father (name) {
+          this.name = name;  
+        }
+        Father.prototype.fway = function  (name) {
+            console.log("我是爸爸，你是我的儿子"+name+"吗?")
+        }
+        function Son () {
+
+        }
+        Son.prototype = new Father();
+        Son.prototype.constructor = Son;//让constructor重新指向Son构造函数
+        let son = new Son ();
+        // son.__proto__.name = "陈子文";
+        son.fway("陈子文");//通过继承访问到了Father原型中的方法！！！
+        son.toString();//也可以访问到object的方法
+        
+         //call() 借用
+        let obj1 = {
+            name:"陈子文",
+            age:22,
+            like:"beautiful girl",
+            friend:["没有","什么都没有","谁都不喜欢"]
+        }
+        let obj2 = obj1;
+        console.log(obj2);
+    </script>
+</body>
+</html>

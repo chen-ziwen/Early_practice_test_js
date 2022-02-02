@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>class类继承复习</title>
+</head>
+<body>
+    <script>
+        window.addEventListener("load", (event) => {
+            let a = new Object();
+            a.name = "陈子文";
+            a.sex = "男";
+            a.number = 18159388315;
+            console.log(a)
+
+            function Person() {
+                this.name = name;
+                this.sex = sex;
+                this.age = age;
+                this.number = number;
+                this.fn = function () {
+                    console.log(this.name)
+                }
+
+            }
+            Person.prototype.apple = function () {
+                console.log("吃个苹果")
+            }
+
+            function Smallperson(name, sex, age, number) {
+                console.log("123456")
+                //call()方法的作用
+                //A.call(B,x,y)
+
+                //1 改变函数A的this指向，使之指向B;
+
+                //2 把A函数放到B中运行，x和y是A函数的参数。
+                Person.call();
+            }
+            Smallperson.prototype = new Person();
+            Smallperson.prototype.constructor = Smallperson;
+            let smp = new Smallperson("好人", "中性", 99, 123);
+            console.log('smp',smp)
+            smp.apple();
+
+            let cyh = new Person("陈怡欢", "女", 25, "无");
+            let wyz = new Person("王允志", "男", 21, "无");
+            let ycy = new Person("叶春阳", "男", 21, "无");
+            console.log(console instanceof Object); //console 是个对象
+            console.log(console.log instanceof Function); // log是个函数
+
+            console.log(cyh, wyz, ycy)
+
+            class Car {
+                constructor(name, sex, age, number) {
+                    this.name = name;
+                    this.sex = sex;
+                    this.age = age;
+                    this.number = number;
+                    this.fn = function () {
+                        console.log(this.name)
+                    }
+
+                }
+
+                hello() {
+                    console.log("我特别喜欢你们")
+                }
+
+                ajax = 1;
+
+                static boring() {
+                  console.log("你好,我是car中的方法")
+                }
+                  
+            }
+              let bc = new Car(1,2,3,4);
+              console.log(bc)
+              bc.hello()
+              console.log(bc.ajax)
+            //   bc.boring() //不在原型对象中所以找不到
+              Car.boring()
+
+            class Bt extends Car {
+              constructor (name, sex, age, number,huazi) {
+                 super(name, sex, age, number) //相当于car.constructor super里必须带上car的参数
+                 this.huazi = huazi;
+              }
+            }
+            let bentian = new Bt ("本田", "车", "10岁", "闽B7895","来根华子");
+            console.log(bentian)
+
+        }, false)
+    </script>
+</body>
+</html>

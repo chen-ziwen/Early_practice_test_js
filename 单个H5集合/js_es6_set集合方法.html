@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>es6 set集合方法</title>
+</head>
+<body>
+    <script>
+        //Set 是新的构造函数
+
+        //练习  p176-177
+
+         //Set的键与值是一样的
+
+         //keys()方法遍历集合的键
+        //values()方法遍历集合的值
+        //entries()方法同时遍历集合的键与值
+
+        //1.去重 set集合方法自带去重
+        let array = [1,2,"陈子文",2,1,2,5,34,0,12,3,3,5];
+          //初始值加入数组会自动遍历成单个字符
+        let set = [...new Set(array)]; //通过扩展运算符把集合遍历成数组形式
+        
+        let set10 = new Set(array);
+       
+       
+        // set.add([1,2,3,4]); // 通过add添加的数组是完整的一个数组加入
+        console.log(set); 
+        console.log("————————————————————————");
+        console.log(set10.keys())  //SetIterator {1, 2, 3, 5, 34, …} 集合形迭代器
+        console.log(set10.values()) //SetIterator {1, 2, 3, 5, 34, …} 集合形迭代器
+        // set 集合的键和值一样
+        console.log(set10.entries()) //SetIterator {1 => 1, 2 => 2, 3 => 3, 5 => 5, 34 => 34, …}
+       
+        console.log("————————————————————————");
+
+        //2.交集
+        let array1 = [2,5,4,5,8,3,6,8,1,2,3];
+         
+        let set1 = new Set(array1);
+        console.log(set1);
+        let way = set.filter(items=>{ //我傻逼了 filter()那五个方法是针对数组的迭代方式，集合不能用!!!!
+            if(set1.has(items)) { //集合的方法就add(),delete(),clear(),has(),以及一些别的
+                return true;
+            }
+            else {
+                return false;
+            }
+        });
+        console.log(way); //(4) [1, 2, 3, 5]
+        // 2.交集改良
+        let way1 = set.filter(items=>set1.has(items)); //大大缩短代码量
+        console.log(...way);
+        console.log(...way1);
+
+        //3.并集
+        let array2 = [...array,...array1];
+        let set2 = [...new Set(array2)];
+        console.log(...set2);
+
+        //测试
+
+        //集合 类似数组 可迭代 有size属性和数组的length属性一样
+        const sset = new Set();
+        sset.add("陈子文");
+        sset.add("陈孜");
+        sset.delete("陈子文");
+        sset.add("李小龙");
+        console.log(sset);
+        console.log(sset[1]);
+        //数组
+        let a = ["陈子文","陈孜"];
+        console.log(a);
+        //对象
+        let b = {name:"陈子文",name2:"陈孜"};
+        delete b.name; //删除名字
+        b.name3 = "李小龙";
+        console.log(b);
+        
+    </script>
+</body>
+</html>

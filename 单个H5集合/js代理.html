@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js 代理</title>
+</head>
+
+<body>
+    <script>
+        window.onload = function () {
+
+            let czw = {
+                name: "陈子文",
+                age: 22,
+                sex: "男"
+            }
+
+            let czwwork = {
+                get() { //捕获器
+                    return "我直接把你想要获取的东西拦截掉"
+                }
+            };
+
+            let proxy = new Proxy(czw, czwwork); //proxy为czw对象的代理对象，czwson为处理程序对象
+
+            console.log(czw.name)
+            console.log(proxy.name) //通过代理对象执行操作时，会触发定义的get()捕获器
+
+
+
+        }
+    </script>
+</body>
+
+</html>

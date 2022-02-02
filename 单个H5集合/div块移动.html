@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>122 键盘移动div</title>
+  <style>
+    #box1 {
+      width: 100px;
+      height: 100px;
+      background-color: cornflowerblue;
+      border: 5px solid red;
+      position: fixed;
+      /* visibility: hidden; */
+    }
+  </style>
+</head>
+
+<body>
+  <script>
+    window.onload = function () {
+      let box1 = document.getElementById("box1");
+      document.onkeydown = function (event) { //支持该事件的对象 document, image, link, textarea
+        event = event || window.event;
+        let a = box1.offsetLeft;
+        let b = box1.offsetTop;
+        let c = event.keyCode;
+        
+        let speed = 10;
+        if (event.shiftKey) { //如果按下shift键，会返回一个true，没下下则是false
+          speed = 40;
+        }
+
+        if (c === 65) {
+          box1.style.left = a - speed + "px";
+        } else if (c === 68) {
+          box1.style.left = a + speed + "px";
+        } else if (c === 87) {
+          box1.style.top = b - speed + "px";
+        } else if (c === 83) {
+          box1.style.top = b + speed + "px";
+        }
+        
+      };
+      // it.onkeydown = function (event) {
+      //     let a = event.keyCode;
+      //     console.log(a);
+
+      // };
+      //a = 65 ;w =87 ; s =83; d =68;
+
+      //  alert(box1.offsetLeft);
+    };
+    // let a = navigator.userAgent
+    
+  </script>
+  <div id="box1">移动我</div>
+  <!-- <input type="" name="" value="" id ="it"> -->
+
+</body>
+
+</html>

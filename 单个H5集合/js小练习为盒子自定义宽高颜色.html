@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js小练习为盒子自定义宽高颜色</title>
+    <style>
+      .bag {
+          position: relative;
+          left: 50%;
+          margin-left: -400px;
+          margin-top: 100px;
+          width: 800px;
+          height: 500px;
+          background-color: whitesmoke;
+      }
+      .box {    
+        margin-top: 50px;
+        width: 300px;
+        height: 300px;
+        background-color: yellow;
+        z-index: 1;
+      }
+      .sp {
+          margin-top: 50px;
+          font: 700 20px "黑体";
+      }
+       .btn {
+           margin-top: 50px;
+           width: 80px;
+           height: 40px;
+           color: whitesmoke;
+           background-color: tomato;
+           border: 0;
+       }
+       .set {
+           display: none;
+           position: absolute;
+           width: 300px;
+           height: 200px;
+           left: 400px;
+           top: 200px;
+           background-color: #bfa;
+           box-shadow: 0px 0px 0px 20px rgba(112,128,144,.2);
+           z-index: 3;
+       }   
+         .l1 {
+             list-style: none;
+            }
+          .l2,.l3,.l4 {
+             display: inline-block;
+             width: 30px;
+             height: 30px;
+             color: salmon;
+             background-color: skyblue;
+          }
+          .gaizi {
+              position: absolute;
+              display: none;
+              width: 800px;
+              height: 500px;
+              background-color: rgba(0,0,0,.3);
+              z-index: 2;
+          }
+          .wtht #ip1 {
+            width: 30px;
+              height: 20px;
+          }
+          .wtht #ip2 {
+              width: 30px;
+              height: 20px;
+          }
+          .btn {
+            box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.3);
+          }
+    </style>
+</head>
+<body>
+    <script>
+      window.onload = function () {
+          let btn = document.querySelector(".btn");
+          let set = document.querySelector(".set");
+          let gaizi = document.querySelector(".gaizi");
+          let l2 = document.querySelector(".l2");
+          let l3 = document.querySelector(".l3");
+          let l4 = document.querySelector(".l4");
+          let box = document.querySelector(".box");
+          let ip1 = document.querySelector("#ip1");
+          let ip2 = document.querySelector("#ip2");
+          let ip3 = document.querySelector("#ip3");
+
+          btn.onclick = function () {
+            gaizi.style.display = "block"
+            set.style.display = "block"
+            btn.style.boxShadow = "3px 3px 6px rgba(0,0,0,0.2) inset"
+
+          }
+         l2.onclick = function () {
+           box.style.backgroundColor = "red";
+         }
+         l3.onclick = function () {
+           box.style.backgroundColor = "yellow";
+         }
+         l4.onclick = function () {
+           box.style.backgroundColor = "blue";
+         }
+         ip3.onclick = function () {
+            box.style.width = ip1.value +"px";
+            box.style.height = ip2.value +"px";
+        }
+        // set.onmouseout = function () {
+        //     gaizi.style.display = "none"
+        // }
+        
+         
+      }
+        
+    </script>
+     <div class="bag">
+         <div class="gaizi"></div>
+         <span class="sp">请为下面div设置样式</span> <button class="btn">点击设置</button>
+         <div class="box"></div>
+         <div class="set">
+             <div class="bagcolor">
+                 <ul>
+                 <li class="l1" >请选择背景色</li>
+                 <li class="l2" style="cursor: pointer;">红</li>
+                 <li class="l3" style="cursor: pointer;">黄</li>
+                 <li class="l4" style="cursor: pointer;">蓝</li>
+                 </ul>
+            </div>
+
+             <div class="wtht">
+
+                输入宽：<input type="text" value="" id="ip1">
+                输入高：<input type="text" value="" id="ip2">
+                <input type="button" value="确认" id="ip3">
+             </div>
+        </div>
+         <!-- 文本域 -->
+       <!-- <textarea name="" id="" cols="30" rows="10" style="outline: none; resize: none;"></textarea>  -->
+     </div>
+</body>
+</html>

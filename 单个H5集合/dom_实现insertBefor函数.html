@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js 实现insertAfter</title>
+</head>
+<body>
+    <script>
+
+         
+        function insertAfter (newElement,tragetElement) {
+           let parent = tragetElement.parentNode;
+           //如果这个旧节点是这个父元素的最后一个子节点，那么直接把新节点插入就好。
+           if(parent.lastChild == tragetElement) {
+               parent.appendChild(newElement);
+
+           }
+           //如果这个旧节点不是最后一个节点，那么就把这个新节点插入到这旧节点的下一个节点之前
+           else {
+               
+               parent.insertBefor(newElement,tragetElement.nextSibling)
+           }
+        }
+    </script>
+</body>
+</html>

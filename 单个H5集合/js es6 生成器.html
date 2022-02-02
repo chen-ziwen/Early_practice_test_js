@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js es6 生成器</title>
+</head>
+<body>
+    <script>
+       
+
+          //es6 22课 详细讲了回调地狱
+          
+         /*试验： 
+         题目：自己定义一个函数的迭代器，利用生成器函数定义一个延时函数的迭代器，
+         */
+         function  father () {
+             setTimeout(()=>{
+                 console.log(1);
+                 rowzhi.next("我是第二个yeild,但我作为第一个yeild的返回结果");
+                
+
+             },2000)
+         }
+         function mather () {
+            setTimeout(()=>{
+                console.log(2);
+               rowzhi.next(); 
+
+            },1200)
+         }
+         function son () {
+            setTimeout(()=>{
+                console.log(3);
+                rowzhi.next();
+
+            },1100)
+         }
+         function sister () {
+            setTimeout(()=>{
+                console.log(4);
+            },1300)
+         }
+
+        //  father()                         
+        //  mather()
+        //  son()
+        //  sister()
+         /*输出顺序是 3241 这个不是我想要的，我想要的是1234，有循序的执行
+         直接调用的话，一次性全出来。所以在Ajax时间不确定的情况下，就不能按循序来输出*/
+         //yield 除了终止操作，还可以返回一个返回值
+
+         //next()方法可以传入实参,这个参数将作为上一个yield的返回结果
+         function *row () {
+              yield father();
+              yield mather();
+              yield son();
+              yield sister();
+         }
+        
+         let rowzhi = row(); //调用这个生成器函数会返回一个对象，把对象赋值给rowzhi
+        rowzhi.next();
+         console.log();
+        //  console.log(rowzhi.next)
+          /*调用rowzhi对象中的next方法去解锁第*row函数里的第一项father函数，
+         然后father函数内部有第二个rowzhi.next()方法,
+         这个第二个方法再次调用*row函数里的第二项mather函数，以此类推。*/
+         console.log('___________________________________________________');
+
+         
+
+         // 生成器函数是ES6中的一个重要特性，可以将其用于所有支持函数使用的地方
+
+      //【使用限制】
+
+　　    //yield关键字只可在生成器内部使用，在其他地方使用会导致程序抛出错误
+
+        //生成器的作用，解决回调地狱，多看几遍好好理解
+
+        /*正常情况下，如果定时函数的延时时间是一样的，
+        回同时执行，而且不分顺序，正常的话ajax请求
+        我们是不清楚具体时间的，所以我们要拿这个
+        生成器函数去按顺序的执行这个函数*/
+
+//         function a() {
+//             setTimeout(() => {
+//                 let data = "公司员工"
+//                 iterator.next(data);
+//             }, 1000);
+//         }
+
+//         function b() {
+//             setTimeout(() => {
+//                 let data = "女秘书"
+//                 iterator.next(data);
+//             }, 1000);
+//         }
+
+//         function c() {
+//             setTimeout(() => {
+//                 let data = "董事长"
+//                 iterator.next(data);
+//             }, 1000);
+//         }
+
+//         function* d() {
+//             //生成器函数的写法 ，对象一开始处于暂停执行的状态，不会直接调用，必须通过next()去调用。
+//             /*
+
+// 　　1、函数生成器特点是函数名前面有一个‘*’
+
+// 　　2、通过调用函数生成一个控制器
+
+// 　　3、调用next()方法开始执行函数
+
+// 　　4、遇到yield函数将暂停
+
+// 　　5、再次调用next()继续执行函数*/
+
+//             let a_ = yield a();
+//             console.log(a_)
+//             let b_ = yield b();
+//             console.log(b_)
+//             let c_ = yield c();
+//             console.log(c_)
+//         }
+
+//         let iterator = d();
+//         iterator.next();
+    </script>
+</body>
+</html>

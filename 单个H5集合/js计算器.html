@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>计算器</title>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+        }
+        table{
+            width:400px;
+            margin:auto;
+            border:1px solid silver;
+            border-collapse: collapse;/*列与列的间距*/
+        }
+       td {
+           width: 100px;
+           border: 1px solid #525252;
+
+
+       }
+        td input{
+            width:98.7%;
+            height:60px;
+            outline: none;
+            text-align: right;
+            font-size: 20px;
+            background: rgba(251, 255, 227, 0.81);
+
+
+        }
+        td button{
+            width:100%;
+            height:60px;
+            font-size: 22px;
+            background: rgba(223, 255, 243, 0.81);
+        }
+    </style>
+</head>
+<body>
+<table>
+    <tr>
+        <td colspan="4" ><input  id="text" type="text" value="0"  /></td>
+    </tr>
+    <tr>
+        <td colspan="2"><button class="btn">del</button></td>
+        <td colspan="2"><button class="btn">c</button></td>
+    </tr>
+    <tr>
+        <td><button class="btn">9</button></td>
+        <td><button class="btn">8</button></td>
+        <td><button class="btn">7</button></td>
+        <td><button class="btn">+</button></td>
+    </tr>
+    <tr>
+        <td><button class="btn">6</button></td>
+        <td><button class="btn">5</button></td>
+        <td><button class="btn">4</button></td>
+        <td><button class="btn">-</button></td>
+    </tr>
+    <tr>
+        <td><button class="btn">3</button></td>
+        <td><button class="btn">2</button></td>
+        <td><button class="btn">1</button></td>
+        <td><button class="btn">*</button></td>
+    </tr>
+    <tr>
+        <td><button class="btn">0</button></td>
+        <td><button class="btn">.</button></td>
+        <td><button class="btn">=</button></td>
+        <td><button class="btn">/</button></td>
+    </tr>
+</table>
+<!--<span id="m">8</span>-->
+<script>
+   /* var M=document.getElementById ("m");
+
+    console.log(M.innerHTML );
+    console.log(M.innerText);*/
+    //获取按钮
+    var buttonal=document.getElementsByClassName ("btn");
+    var textal=document.getElementById("text");
+    var res=[];  //定义一个数组存储输入的值
+    var label=false;
+    for(var i=0;i<buttonal.length;i++){
+        buttonal[i].onclick=addclick;
+        function addclick(){
+            //输入为数字或者为“.”
+            if(!isNaN(this.innerHTML) || this.innerHTML=="."){
+                //文本框初值不为0
+                label = true;
+                if(textal.value!== "0"){
+                    //文本框中含有“.”
+                    if(textal.value.indexOf(".")!==-1){
+                        //处理点重复的问题   文本框里面有点 不上去点（用户按的数字 得加  用户按的是点 不加）
+                        //输入"."时
+                        if(this.innerHTML!== "."){
+                            textal.value+=this.innerHTML;
+                        }
+                    }
+                    else{
+                        textal.value+=this.innerHTML;
+                    }
+                }
+                //文本框初值为0
+                else{
+                  if(this.innerHTML =="."){
+                      textal.value="0"+this.innerHTML ;
+                  }
+                  else{
+                      textal.value=this.innerHTML;
+                  }
+                }
+            }
+            //非数字
+            else{
+              switch(this.innerHTML ) {
+                  case "+" :save(this);
+                            break;
+                  case "-" :save(this);
+                            break;
+                  case "/" :save(this);
+                            break;
+                  case "*":save(this);
+                            break;
+                  case "=":
+                            res.push(textal.value);
+                            //这边的设计无敌了，这咋想出来的 所有计算都是在这一步完成的
+                            var result= eval(res.join(""));
+                            if(result =="Infinity"){
+                             remove_add ("remove");
+                            }
+                            textal.value=result==Infinity?"除数不能为零":result;
+                            //console.log(res.join(""));
+                            res=[]; //算完一边把数组清空
+                            break;
+                  case "del":
+                            //从后往前一个一个的减数字  substr(start,count)  substring(start,end) end不取
+                             textal.value = textal.value.length==1 ? "0":textal.value.substr(0,textal.value.length-1);
+                             break;
+                  case "c":
+                             textal.value="0";
+                            res=[];
+                            remove_add("add");
+                            break;
+              }
+            }
+        }
+    }
+    function save(mini){
+        //清屏之前存储用户按的值
+       // 确认一个条件  用户是连续按符号  还是数字+符号
+        if(!label){   //连续两次按符号时
+            res[res.length-1]=mini.innerHTML ;  //第二次按的符号替代第一次的
+        }
+        else{
+            res.push(textal.value);
+            res.push(mini.innerHTML);
+        }
+        textal.value="0";
+        label=false;
+    }
+
+    //卸载除c以外的所有元素的事件
+     function remove_add(p){
+         for(var i=0;i<buttonal.length;i++){
+            if(p == "add"){
+                buttonal[i].onclick = addclick;
+            }
+            else{
+                if(buttonal[i].innerHTML!="c"){
+                    buttonal[i].onclick = null;
+                }
+            }
+         }
+     }
+
+</script>
+</body>
+</html>

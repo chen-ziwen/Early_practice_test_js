@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模仿发短信倒计时</title>
+</head>
+<style>
+
+</style>
+
+<body>
+    <script>
+        window.onload = function () {
+            let ipts = document.querySelectorAll("input");
+            ipts[1].addEventListener("click", () => {
+                ipts[0].disabled = true;
+                ipts[1].disabled = true;
+                ipts[0].value
+                ipts[0].value = "还剩余9秒钟"
+                let i = 9;
+                let a = setInterval(() => {
+                    ipts[0].value = "还剩余" + i + "秒钟"
+                    i--;
+                    if (i < 0) {
+                        ipts[0].disabled = false;
+                        ipts[1].disabled = false;
+                        ipts[0].value = ""
+                        clearInterval(a);
+                    }
+                }, 1000);
+
+            }, false)
+
+        }
+         
+    </script>
+    手机号码：<input type="text"> <input type="submit" value="发送验证码">
+
+     
+     
+</body>
+
+</html>

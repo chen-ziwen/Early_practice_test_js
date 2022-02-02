@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>猜数字小游戏</title>
+</head>
+<style>
+   #box {
+       position: relative;
+       top: 20px;
+       margin: 0 auto;
+       width: 300px;
+       height:350px;
+       background-color: cornsilk;
+       
+      
+
+   }
+   #pic {
+       position: absolute;
+       width: 300px;
+       height: 100px;
+       background-color:#bfa ;
+       top: 250px;
+       }
+       #box > p:nth-child(2) {
+           color: darkmagenta;
+           font: italic 700 20px "黑体";
+       }
+      
+</style>
+
+<body>
+    <script>
+      window.onload = function () {
+          let ip1 = document.getElementById("ip1");
+          let min = document.getElementById("min");
+          let max = document.getElementById("max");
+          let btn = document.getElementById("btn");
+          let submit = document.getElementById("submit")
+
+        //  function  big () {
+
+        /* 如果不想办法让底下这个两行代码延时赋值的话，
+        这两个数会优先赋值，这个值永远都是0，因为初始值是0; */
+          
+        // 获取自定义的最小值，和最大值
+          
+         
+           
+            //内部函数去调用外部的值，形成闭包;
+        //   function close () {
+        //        let array = [min_value,max_value,a] ;
+        //        return array;
+        //   }
+        //    return close;
+        // }  
+        
+      submit.onclick = function (){
+            //  let array2 = big()();
+          let min_value = +min.value;
+          let max_value = +max.value;
+
+             let a = Math.floor(Math.random()*(max_value-min_value+1)+min_value);
+                  if(ip1.value < a && ip1.value>=min_value) 
+                    console.log("你猜的数小了一点哦");
+                    
+                  
+                  else if(ip1.value > a && ip1.value <=max_value) 
+                    console.log("你猜的数大了一点哦");
+                    
+                  
+                 
+                  else if(ip1.value == a) 
+                    console.log("恭喜你，猜对了，这个数字是"+a);
+                    
+                 
+                  else if (ip1.value> max_value||ip1.value< min_value) 
+                      console("你输入的值不在范围内,请重新输入");
+                
+                }  
+          }
+          
+   
+ 
+    </script>
+    <div id="box">
+        <div id="pic"></div>
+        <p>选择你的猜数字范围：</p>
+        最小数：<input type="text" size="1px" id="min"> <br>
+        最大数：<input type="text" size="1px" id="max"> <br>
+        <!-- <button id="btn">确认</button> -->
+        <input type="text" size="1px" height="10px" id="ip1">
+        <input type="submit" id="submit">
+    </div>
+</body>
+
+</html>

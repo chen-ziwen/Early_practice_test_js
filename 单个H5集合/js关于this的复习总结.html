@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原生js关于this的复习</title>
+</head>
+
+<body>
+    <script>
+        // 原生js中：
+
+        // 1. 当普通函数调用this时， this指向window
+
+        function eg () {
+            console.log(this) // this指向window
+        }
+        // 2. 当对象函数调用this时， this指向这个对象
+        //（ 对象函数的意思就是当对象中包含这个函数时， 官方说法把这种函数叫做方法）
+        eg()
+
+        let a = {
+            name : 'Hhahah',
+            eg: function () {
+
+                console.log("a对象",this,this.name) //这个this指向a对象
+            }
+
+        }
+         a.eg()
+
+         // 3.当构造函数中调用this时 ， this指向这个构造函数所构造出来的实例对象
+
+         function Person () {
+             this.name = '陈子文';
+             this.age = 22;
+             this.sex = '男';
+             
+         }
+         const czw =  new Person()
+         console.log(czw)
+
+         // 4. apply和call方法
+
+          function Father () {
+              this.name = "儿子" 
+              console.log("我被获取到了")
+          }
+          function Son () {
+
+            //把father指定为son实例对象的方法  并没有把Father函数放到Son实例对象中
+        
+              Father.call(this)  
+          }
+          const lyl = new Son()
+          console.log(lyl.name)
+        //   lyl.Father()   //报错
+
+        //5.箭头函数的this 指向父级上下文this 因为箭头函数本身没有this
+          
+
+
+    </script>
+</body>
+
+</html>

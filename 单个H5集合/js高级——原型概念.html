@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js高级 15课原型的概念</title>
+</head>
+<body>
+    <script>
+        let change = 15;
+         let change2 = change;
+         change2 = 18;
+         console.log(change);
+         console.log(change2);
+
+         function fun() {
+            fun.prototype.name = function () {
+                console.log("当初的爱你");
+            }
+            fun.prototype.name(); //
+         }
+         fun();
+         console.log(fun.prototype);
+         fun.prototype.name();
+         // 
+         function Person() {
+             
+         }
+         let man = new Person();
+         Person.prototype.test = function () {
+             console.log("到现在我对你没有一点喜欢了");
+         }
+         man.test();//先从自身去找，找不到去__proto__里面找
+         man.__proto__.test(); //下面和上面的结果一致
+    </script>
+</body>
+</html>

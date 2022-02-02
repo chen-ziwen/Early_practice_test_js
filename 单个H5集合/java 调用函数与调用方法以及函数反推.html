@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+   /*函数对象与函数返回值的区别
+   实参可以是任何数据类型，形参不需要和实参一样，只需要能接受数据就行。
+   实参可以是对象，函数。形参也可以接收对象和函数。
+   */
+    function fun(a){
+
+    console.log("a="+a);
+
+     }
+
+    function mianji (r) {
+
+     
+     
+     return 3.14*r*r;
+
+    }
+     var mianji2 = mianji();
+     console.log("面积为"+mianji2);
+   
+    
+     fun(mianji(10));
+
+     
+//直接执行的函数
+     (function (a,b,c)
+      {
+        console.log("你是谁，我爱你妈")
+        console.log(a,b,c)
+      })(123,458,256);
+
+ //重点 需要多看理解
+
+      let qwe = new Object();
+
+      qwe.name = function(a,b,c)
+       {    //这个函数等于 function qwe.name (a,b,c) { console.log("这个数字是"+a+b+c);}
+            console.log("这个数字是"+a+b+c);
+      };
+      qwe.name(5,2,0);
+
+
+
+
+
+
+
+
+      //document.write 怎么来的反推
+       
+       //第一种写法，对象的属性除了write还可以有无数个属性，每个属性又可以赋值一个函数。
+       let document = new Object;
+       document.write = function (这个里面写的是形参) {
+
+       };
+       //需要调用的时候写document.write(这个括号里写的是这个函数的实参，传递给形参)
+
+
+       
+       //第二种写法
+       let document = {
+        write : function(){};//具体功能实现不详写
+       };
+
+
+
+
+
+        //找出document 的属性各是什么。
+      
+      for(var n in document){
+      // console.log("属性为"+ n);
+       console.log("函数代码"+document.write);
+
+      }
+
+     //就近，函数里面没有去window中找，都没有就报错
+      var love = 10 ;
+      function fun (){
+
+      var love ="我是fun中的love"
+
+      function fun2 () {
+            console.log(love);
+      }
+      fun2();
+
+      }
+      fun();
+
+      //
+      for (var n in Object){
+            console.log(n);
+      }
+	</script>
+	
+</body>
+</html>
