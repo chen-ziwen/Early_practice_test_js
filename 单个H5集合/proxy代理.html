@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proxy代理</title>
+</head>
+<body>
+   请输入： <input type="text" class="inputl" value="555">
+   <div class="box"></div>
+</body>
+<script>
+    // window.addEventListener('load',(e)=>{
+        // 当我引用到obj对象时，触发get函数
+        const obj = {name:'陈子文',age:22,sex:'男'}
+        const nobj = new Proxy(obj,{
+            get abc (){
+                const div = document.createElement('div');
+                div.style.cssText = 'background-color:red;width:300px;height:300px';
+                let body = document.querySelector('body').appendChild(div)
+                console.log('get触发了',nobj)
+               return 1
+            },
+            set(val) {
+              console.log('set触发了',val)
+              obj.name = val
+            }
+        })
+        class Czw {
+            constructor(name,age,sex) {
+                this.name = name;
+                this.age = age;
+                this.sex = sex
+            }
+            get change () {
+               const body = document.querySelector('body').style.backgroundColor = 'red'
+              return '背景颜色被我修改了' 
+            }
+            set change (val) {
+                const body = document.querySelector('body')
+                body.style.backgroundColor = val
+            }
+            hello(){
+                console.log('你好呀宝贝')
+            }
+        }
+        class Son extends Czw {
+            constructor(name,age,sex,work,love) {
+                super(name,age,sex);
+                this.work= work;
+                this.love = love;
+            }
+        }
+        const czwson = new Son ('陈子文',22,'男','前端开发','暂无')
+        console.log('我是son',czwson)
+        czwson.hello()
+        
+        const input = document.querySelector('.inputl')
+        console.log('我是input，value值',input.value)
+        input.oninput = function () {
+            const box = document.querySelector('.box')
+            box.innerHTML = input.value
+            console.log('hhahahhahah')
+        }
+          
+        
+    // })
+</script>
+<style>
+
+</style>
+</html>

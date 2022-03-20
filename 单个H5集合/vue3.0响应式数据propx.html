@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proxy</title>
+</head>
+<body>
+    <div class="box" style="font-size: 160px; font-weight: 700;">11</div>
+    <button onclick="changeValue()" class="btn">点击更改值</button>
+    响应式值<input type="text" class="input" value="" oninput="choose()"> 
+</body>
+<script>
+    // window.addEventListener('load',function(event){
+    
+    let cat = { name : '波斯猫',price: '1500', feacture: '漂亮'}
+    const box = document.querySelector('.box');
+    const btn = document.querySelector('.btn');
+    const input = document.querySelector('.input');
+    let catP = new Proxy(cat,{
+        //1.target等于 cat 对象  
+        //2.访问的是哪个属性 propName就是哪个属性的key
+        get(target,propName) {
+            console.log(`读取了${propName}的值`)
+            box.innerHTML = target[propName]
+            return target[propName]
+        },
+        set(target,propName,value){
+            console.log(`修改了${propName}`)
+           target[propName] = value;
+           box.innerHTML = target[propName]
+        }
+    })
+    function changeValue () {
+       catP.name = '我也想不到要改什么名字'
+    }
+    function choose() {
+        box.innerHTML = input.value
+    }
+    // })
+    
+</script>
+
+</html>

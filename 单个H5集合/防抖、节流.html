@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>防抖、节流</title>
+</head>
+<body>
+      <button onclick="hello();">点击触发</button>
+</body>
+<script>
+//简易版防抖
+    function shake (fn,dealy) {
+    let timeout = null;
+    return function () {
+        if(timeout) {clearTimeout(timeout)}
+        timeout = setTimeout(fn,dealy)
+    }
+
+}
+//#region 
+function shakeUp (fn,dealy) {
+    let timeout = null;
+    return function () {
+        let context = this;
+        let args = arguments;
+        if(timeout) {clearTimeout(timeout)}
+        timeout = setTimeout(()=>{
+          fn.apply(context,args)
+        },dealy)
+    }
+
+}
+function debounce(fun, wait) {
+    let timeout;
+    return function () {
+        let context = this;
+        let args = arguments;
+        console.log('$$$$$$$$$$$$',args)
+        if (timeout) clearTimeout(timeout);
+        timeout = setTimeout(() => {
+            fun.apply(context, args)
+        }, wait);
+    }
+}
+let fan = debounce(hpp,1000)
+// let a = shake(hpp,2000)
+//将内部函数保存到全局变量，形成闭包
+function hpp () {
+    console.log(Math.floor(Math.random()*5)+1)
+}
+//#endregion
+// })
+
+//节流函数
+function throttle (fn,dealy) {
+    let timeout;
+    let change = true;  //设置值为true
+    return function () {
+    let context = this;
+    let args = arguments;
+    if(!change) return;  //如果chang为false rutrun空
+    change = false;   //将change改为false ，在接下来的时间中 ，重复触发这个函数会一直返回空
+    clearTimeout( timeout)
+    timeout = setTimeout(function(){
+        fn.apply(context,args)
+        change = true;  //当定时器结束，将chang改为true 下次触发就不会再返回空了
+    },dealy)
+    }
+}
+let hello = throttle(hpp,2000)
+
+
+</script>
+</html>
