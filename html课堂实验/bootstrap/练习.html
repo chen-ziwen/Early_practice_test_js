@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>布局</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<style>
+     .item {
+     	background-repeat: no-repeat;
+     	background-position: center center;
+     	background-attachment: scroll;
+     	min-height: 200px;
+     }
+    .bg1 {
+    	background-image: url(image/4.jpg);
+    }
+    .bg2 {
+    	background-image: url(image/5.jpg);
+    }
+    .bg3 {
+    	background-image: url(image/6.jpg);
+    }
+    .bg4 {
+    	background-color: pink;
+    }
+   .bg5 {
+   	    background-image: url(image/);
+   }
+   .under-content {
+
+   	 height: 40px;
+   	 color: blue;
+   	 text-align: center;
+   	 padding-right: 20px;
+   	 margin-bottom: 10px;
+   }
+    .under-content>a>p {
+    	line-height: 40px;
+    	 background-color: #e2e2e2;
+    }
+
+	</style>
+</head>
+<body>
+	<div>
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="#one" aria-controls="one" data-toggle="tab">我喜欢你</a></li>
+			<li ><a href="#two" aria-controls="two" data-toggle="tab">我爱你</a></li>
+			<li ><a href="#three" aria-controls="three" data-toggle="tab">我不爱你</a></li>
+			<li ><a href="#four" aria-controls="four" data-toggle="tab">你喜欢我</a></li>
+			<li><a href="#five" aria-controls="five" data-toggle="tab">你不爱我</a></li>
+			<li ><a href="#six" aria-controls="six" data-toggle="tab">我爱我吗</a></li>
+		</ul>
+		<div class="tab-content">
+	
+        <div class="tab-pane" active id="one">
+
+		<div class="container">
+		<div class="row">
+        <div class="col-sm-4 item bg1"></div>
+        <div class="col-sm-4 item bg2"></div>
+        <div class="col-sm-4 item bg3"></div>
+        </div>
+        </div>
+
+        <div class="container">
+		<div class="row">
+        <div class="col-sm-4 under-content "><a href="http://www.baidu.com" target="_blank"><p>我是其很爱你</p></a></div>
+        <div class="col-sm-4 under-content "><a href="http://www.qq.com"><p>我是其很爱你</p></a></div>
+        <div class="col-sm-4 under-content "><a href="http://www.douban.com"><p>我是其很爱你</p></a></div>
+        </div>
+        </div> 
+
+        <div class="container">
+        <div class="row">
+        <div class="col-sm-12 item bg4">
+        <div class="row">
+        <div class="col-sm-4 item bg1"></div>
+        <div class="col-sm-4 item bg2"></div>
+        <div class="col-sm-4 item bg3"></div>
+        </div>
+        </div>
+		</div>
+	    </div>
+	    </div>
+
+		<div class="tab-pane" id="two">
+
+		<div class="container">
+		<div class="row">
+        <div class="col-sm-4 item bg1"></div>
+        <div class="col-sm-4 item bg2"></div>
+        <div class="col-sm-4 item bg3"></div>
+
+        </div>
+        </div>
+        </div>
+
+			<div class="tab-pane" id="three"></div>
+			<div class="tab-pane" id="four"></div>
+			<div class="tab-pane" id="five"></div>
+			<div class="tab-pane" id="six"></div>
+		</div>
+	</div>
+
+	
+	<script src="js/jquery-1.12.4.js"></script>
+	<script src='js/bootstrap.min.js'></script>
+</body>
+</html>

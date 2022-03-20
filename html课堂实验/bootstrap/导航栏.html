@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>导航栏</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<style>
+		* {
+			margin:0px;
+			padding: 0px;
+		}
+		.item,.row>.under-content {
+     	background-repeat: no-repeat;
+     	background-position: center center;
+     	min-height: 200px;
+     	position: static;
+     	margin-top: 80px;
+
+
+       
+
+     }
+     .item3 {
+     	background-repeat: no-repeat;
+     	background-position: center center;
+     	min-height: 200px;
+     	position: static;
+
+     }
+    .bg1 {
+    	
+       background-image: url(image/4.jpg);
+    }
+    .bg2 {
+    	background-image: url(image/5.jpg);
+    }
+    .bg3 {
+    	background-image: url(image/6.jpg);
+    }
+    .bg5 {
+   	background-image: url(image/sea.jpg);
+   	width: 100%;
+   	height: 800px;
+   	background-size: 100% 800px;
+    
+   }
+
+   .bg1,.bg2,.bg3,.bg4 {
+   	
+   	background-size: cover;
+   	border-radius: 50% ;
+   
+   }
+  
+   .head-content { 
+   	position: fixed;
+   	background-color: lightblue;
+   	width:100%
+   }
+    .under-content {
+
+   	 height: 40px;
+   	 color: blue;
+   	 text-align: center;
+   	 padding-right: 20px;
+   	 margin-bottom: 0px;
+   }
+    .under-content>a>p {
+    	line-height: 40px;
+    	 background-color: #e2e2e2;
+    	 margin-top: 60px;
+    }
+   .bg5>p {
+   	font:700 30px "黑体";
+   	text-align:center;
+   	line-height: 800px;
+   }
+   .btn1 {
+   	position: relative;
+   	left: 47%;
+   	bottom: 350px;
+   	border:5px solid lightblue;
+   }
+  .konde_div {
+  	width: 100%;
+  	height: 700px;
+  	background-color: lightgreen;
+  }
+   .navbar-default .collapse .nav>li a:hover {
+   	background: red;
+   	color: green;
+   }
+   .beijing {
+   	width: 100%;
+   	height: 500px;
+   	background-color: #ffe4e1;
+   }
+   .pde {
+   	line-height: 100px;
+   	text-align:center;
+   	font-weight:700;
+   	font-size: 25px;
+   	
+
+   }
+	</style>
+</head>
+         <!-- 滚动效果 -->
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+	<div style="background-color: #fafad2">
+	<nav class="navbar navbar-default ">
+		<div class="container head-content">
+
+        <div class="collapse navbar-collapse ">
+        	
+        	<div class="navbar-header ">
+         <a class="navbar-brand " href="#one">首页</a>
+            </div>
+        <ul class="nav navbar-nav navbar-right">
+        	<li><a href="#two">第二片段</a></li>
+        	<li><a href="#three">第三片段</a></li>
+        	<!-- 下拉框 -->
+        	<li class="dropdown">
+        		<a href="#" class="dropdown-toggle" data-toggle="dropdown"  aria-haspopup="true" aria-expanded="false">开设课程 <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+              	<li>
+              		<a href="#four">Java程序设计</a>
+              	</li>
+              	<li>
+              		<a href="#five">Android应用开发</a>
+              	</li>
+              	<li>
+              		<a href="#six">Web前端开发技术</a>
+              	</li>
+              	<!-- 让下面的li加宽 -->
+              	<li  class="divider"></li>
+              	<li>
+              		<a href="#seven">中国传统文化</a>
+              	</li>
+              	<li  class="divider"></li>
+              	<li>
+              		<a href="#eight">体育</a>
+              	</li>
+              </ul>
+        	</li>
+        </ul>
+
+        <!-- 表单元素 -->
+       <!--  <form class="navbar-form navbar-right ">
+        <div class="form-group">
+         <input type="text" class="form-control" placeholder="搜索">
+        </div>
+        <button type="submit" class="btn btn-default">提交</button>
+        </form> -->
+   </div>
+</div>
+
+  </nav>
+
+
+
+
+        <div id="one" >
+        <div class="container bg5">
+        <p style="color: white">欢迎来到我的世界</p>
+        <button class="btn1" ><a href="http:www.baidu.com">点击查看更多</a></button>
+        </div>
+        </div>
+
+    
+        <!-- 跳转的内容 -->
+        <div id="two" class="container ">
+        <div class="container ">
+		<div class="row">
+        <div class="col-sm-4 item bg1"></div>
+        <div class="col-sm-4 item bg2"></div>
+        <div class="col-sm-4 item bg3"></div>
+        </div>
+        </div>
+
+        <div class="container">
+		<div class="row">
+        <div class="col-sm-4 under-content "><a href="http://www.baidu.com" target="_blank"><p>你好</p></a></div>
+        <div class="col-sm-4 under-content "><a href="http://www.qq.com"><p>确实</p></a></div>
+        <div class="col-sm-4 under-content "><a href="http://www.douban.com"><p>我是谁</p></a></div>
+        </div>
+        </div> 
+       
+
+        <div class="container">
+		<div class="row">
+        <div class="col-sm-4 item3 bg1"></div>
+        <div class="col-sm-4 item3 bg2"></div>
+        <div class="col-sm-4 item3 bg3"></div>
+        </div>
+        </div>
+        
+         <div class="container">
+		<div class="row">
+        <div class="col-sm-4 under-content "><a href="http://www.baidu.com" target="_blank"><p>百度</p></a></div>
+        <div class="col-sm-4 under-content "><a href="http://www.qq.com"><p>网易云</p></a></div>
+        <div class="col-sm-4 under-content "><a href="http://www.douban.com"><p>豆瓣</p></a></div>
+        </div>
+        </div> 
+	  </div>
+
+
+
+
+
+
+<div id="three" class="container konde_div ">
+ 
+</div>
+
+<div id="four">
+<div class="container">
+	<div class="row">
+		<div class="col-sm-6 item bg1"></div>
+        <div class="col-sm-6 item bg2"></div>
+    </div>
+</div>
+
+         <div class="container">
+		<div class="row">
+        <div class="col-sm-6 under-content "><a href="#" ><p>百度</p></a></div>
+        <div class="col-sm-6 under-content "><a href="#"><p>网易云</p></a></div>
+        </div>
+    </div>
+</div>
+
+<div id="five" class="container">
+  
+</div>
+
+<div id="six" class="container">
+  
+</div>
+ <br>
+ <br>
+<div id="seven" class="container  beijing">
+        <h1 class="text-center">联系我们</h1>
+        <form>
+           
+              <br>
+              <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-5">
+                  <div class="form-group">
+                    <label for="exampleInputEmail">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail" placeholder="Email">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputName">Name</label>
+                    <input type="name" class="form-control" id="exampleInputName" placeholder="Name">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputTel">TEL</label>
+                    <input type="tel" class="form-control" id="exampleInputTel" placeholder="TEL">
+                  </div>
+                </div>
+                <div class="col-md-5">
+                    <label for="exampleInputTel">PS</label>
+                    <textarea type="PS" class="form-control" id="exampleInputPS" placeholder="PS" rows="8"></textarea>
+                </div>
+                <div class="col-md-1"></div>
+              </div>
+              <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-1">
+                  <button type="submit" class="btn btn-default">Submit</button>
+                </div>
+                <div class="col-md-10"></div>
+              </div>
+            </div>
+        </form>
+    </div>
+
+<div id="eight" class="container "style="height:100px; width: 100%; background-color:red">
+    <p class="pde">最后的情面 请不要轻易打破</p>
+	</div>
+   </div>
+	<script src="js/jquery-1.12.4.js"></script>
+	<script src='js/bootstrap.min.js'></script>
+</body>
+</html>

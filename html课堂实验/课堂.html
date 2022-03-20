@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+		body{
+			height: 1000px;
+		}
+           .content{
+           	width: 80%;
+           	height: 500px;
+           	background: #eaeaea;
+           	position: relative;
+           	top:55px;
+           	/*right: -40px;*/
+           	/*left: 40px;*/
+           	z-index: 99;
+           }
+           .wrap{
+           	width: 50%;
+           	height: 60%;
+           	background: #008000;
+           	position: absolute;
+           	z-index: 999;
+           	top:20%;
+           	left: 25%;
+           }
+
+           .main{
+           	width: 50px;
+           	height: 50px;
+           	background: #37a;
+           	position: fixed;
+           	right: 30px;
+           	bottom: 40px;
+           }
+           #hot{
+           	width: 100%;
+           	height: 400px;
+           	background: #eaeaea;
+           	position: relative;
+           	margin-top: 20px;
+           }
+           .left,.right{
+           	width: 50px;
+           	height: 50px;
+           	background: white;
+           	border-radius: 50%;
+           	line-height: 50px;
+           	text-align: center;
+           	position: absolute;
+           	top:175px;
+           	display: none;
+           }
+           
+           #topnav{
+           	width: 100%;
+           	height: 50px;
+           	position: fixed;
+           	top:0;
+           	z-index: 1000;
+           	background: #eaeaea;
+           }
+           .register{
+           	position:absolute;
+           	right: 20px;
+           	top:10px; 
+           }
+           li{
+           	position: relative;
+           	width: 174px;
+           	height: 261px;
+           }
+           .wrapper li:hover:after{
+           	   content: "";
+           	   position: absolute;
+           	   width: 174px;
+           	   height: 261px;
+           	   background: #000;
+           	   opacity: 0.3;
+           	   top:0;
+           	   left:0;
+           	   
+           }
+
+
+	</style>
+</head>
+<body>
+     <div class="content" id="top">
+            <div class="wrap">
+               <div class="main"><a href="#top">返回顶部</a></div>
+            </div>
+     </div>
+     <p>这是div外内容。</p>
+
+     
+
+       <div id="topnav">
+           <button>登录</button>
+           <button class="register">注册</button>
+       </div>
+
+
+
+</body>
+</html>

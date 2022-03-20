@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>小米栏</title>
+</head>
+<style>
+  	* {margin: 0px;
+  	   padding: 0px;}
+  	.xiaomi {
+  		background-color:rgb(83,87,89);
+  		width: 340px;
+  		margin-left: 20px;
+  		margin-top: 20px;
+  	}
+
+  .xiaomi a {
+  	text-decoration: none;
+  	width: 310px;
+  	height: 60px;
+  	display: block;
+  	color: #fff;
+  	line-height: 60px;
+  	padding-left: 30px;
+  	
+
+  }
+  .baby a {
+  	text-decoration: none;
+  	color: black;
+
+  }
+  .xiaomi a：link {
+  	color: red; 
+  }
+  .xiaomi a:hover {
+  	background-color: rgb(255,111,0);
+  }
+  .baby {
+  	width: 100px;
+  	height: 120px;
+  	/*position: relative;
+  	left: 200px;
+  	top: 20px;*/
+    margin: 0 auto;
+  	
+  }
+    .one a {
+      display: block;
+      width: 500px;
+      height: 500px;
+      position: relative;
+      left:20px;
+      top: 50px;
+    }
+
+     
+    .one .bg1{
+      background-image: url(picture/sh1.jpg);
+      background-repeat: none;
+      
+    }
+    /*鼠标移入的时候变个背景*/
+   .one .bg1:hover {
+    background-image: url(picture/sh2.jpg);
+
+   }
+   
+</style>
+<body>
+	<div class="xiaomi">
+	
+			<a href="http://www.baidu.com" target="_blank">手机 电话卡</a>
+			<a href="#">电视 盒子</a>
+			<a href="#">笔记本 平板</a>
+			<a href="#">出行 穿戴</a>
+			<a href="#">智能 路由器</a>
+			<a href="#">健康 儿童</a>
+			<a href="#">耳机 音箱</a>
+		
+	</div>
+	<div class="baby">
+   <a href="http://www.baidu.com">
+  
+   <p style="text-align: center">你是谁</p>
+   <div>
+  text-aling：center； 的作用是把这个块里面的内容居中，但不包括这个块本身。
+  所有要用text-aling的时候一般要把块的宽度设置成100%。
+  使用maring：0 auto；时，是把这个块本身拿来居中，所以要设置宽度，不然块默认百分百宽度，移动不了。
+   </div>
+   </a>
+	</div>
+
+	<div class="one">
+		<a href="" class="bg1" >1</a>
+		<a href="" class="bg2" >2</a>
+		</div>
+</body>
+</html>

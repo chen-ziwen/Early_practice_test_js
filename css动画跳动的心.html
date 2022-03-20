@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css3_动画还原跳动的心</title>
+</head>
+<style>
+    
+    .back {
+        position: relative;
+        width: 100%;
+        height: 500px;
+        background-color: white;
+        animation-name: back;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+    }
+    .heart {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        width: 50px;
+        height: 50px;
+        background-color: deeppink;
+        transform: rotate(-45deg);
+        animation-name: heart;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+    }
+    .heart::before {
+        content: "";
+        position: absolute;
+        display: block;
+        border-radius: 25px;
+        width: 50px;
+        height: 50px;
+        left: 27px;
+        top: 0px;
+        background-color: deeppink;
+    }
+    .heart::after {
+        content: "";
+        position: absolute;
+        display: block;
+        border-radius: 25px;
+        width: 50px;  
+        height: 50px;
+        left: 0px;
+        top: -27px;
+        background-color: deeppink;
+        /* 简写顺序
+        /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+    }
+
+    .heart2 {
+        position: absolute;
+        left: 100px;
+        top: 100px;
+        width: 100px;
+        height: 100px;
+        background-color: #bfa;
+        transform: rotate(-45deg);
+        animation-name: heart2;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+    }
+    .heart2::before {
+        content: "";
+        position: absolute;
+        display: block;
+        border-radius: 50px;
+        width: 100px;
+        height: 100px;
+        left: 54px;
+        top: 0px;
+        background-color: #bfa;
+    }
+    .heart2::after {
+        content: "";
+        position: absolute;
+        display: block;
+        border-radius: 50px;
+        width: 100px;  
+        height: 100px;
+        left: 0px;
+        top: -54px;
+        background-color: #bfa;
+        /* 简写顺序
+        /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+    }
+    @keyframes back {
+        
+        50% {
+            background-color: pink;
+        }
+    }
+    @keyframes heart {
+      0% {
+          transform: scale(1) rotate(-45deg);
+      }
+     50% {
+          transform: scale(0.5) rotate(-45deg);
+      }
+    }
+    @keyframes heart2 {
+      0% {
+          transform: scale(1) rotate(-45deg);
+      }
+     50% {
+          transform: scale(0.5) rotate(-45deg);
+      }
+    }
+    
+</style>
+<body>
+     <div class="back">
+         <div class="heart"></div>
+         <div class="heart2"></div>
+     </div>
+</body>
+</html>

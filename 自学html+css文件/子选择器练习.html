@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>子选择器练习</title>
+</head>
+
+<style> 
+  
+  .nav>a {
+  	color: green;
+  } 
+  .naa ul li a {
+  	color: red;
+  }
+  .hot>a {
+  	color: red;
+  }
+</style>
+
+<body>
+	格式： 元素1>元素2 {样式声明 }  必须是亲儿子 中间用大于号隔开                      
+	<!-- 要求选择儿子而不选择孙子 -->
+	<div class="nav">
+		<a href="#">我是儿子</a>
+		<p>
+			<a href="#">我是孙子</a>
+		</p>
+		
+	
+	</div>
+
+	<div class="naa">
+		<ul>
+			<li><a href="#">百度</a></li>
+			<li><a href="#">百度</a></li>
+		</ul>
+	</div>
+	<div class="hot">
+		<a href="#">大肘子</a>
+		<ul>
+			<li><a href="">猪头</a></li>
+			<li><a href="">猪尾巴</a></li>
+		</ul>
+	</div>
+
+</body>
+</html>

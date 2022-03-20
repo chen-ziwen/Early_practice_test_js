@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css简易魔方实现</title>
+</head>
+<style>
+    body {
+        perspective: 1000px;
+        
+    } 
+   
+     section {
+         position: relative;
+         width: 200px;
+         height: 400px;
+         margin: 150px auto;
+         transform-style: preserve-3d;
+         animation: xuan 8s linear infinite;
+       
+         
+     } 
+      .z,.b,.s,.x,.zo,.y {
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        opacity: 0.85;
+      }
+
+     .z {
+         /* background-color: yellow; */
+         background-image: url(image/ge.jpg);
+         background-size: 200px 200px;
+         
+     }
+     .b {
+         /* background-color: whitesmoke; */
+         transform: translateZ(-200px);
+         background-size: 200px 200px;
+         background-image: url(image/tai3.jpg);
+        
+     }
+     .s {
+         /* background-color: red; */
+         background-image: url(image/long.jpg);
+         background-size: 200px 200px;
+         transform:  translate3d(0px,-100px,-100px) rotateX(90deg) ;
+     }
+     .x {
+         /* background-color: sandybrown; */
+         background-image: url(image/tai1.jpg);
+         background-size: 200px 200px;
+         transform: translate3d(0px,100px,-100px) rotateX(-90deg) ;
+     }
+     .zo {
+         /* background-color: lightgreen; */
+         background-image: url(image/tai.jpg);
+         background-size: 200px 200px;
+         transform: translate3d(-100px,0px,-100px) rotateY(-90deg);
+     }
+     .y {
+         /* background-color: blue; */
+         background-image: url(image/ge1.jpg);
+         background-size: 200px 200px;
+         transform: translate3d(100px,0px,-100px) rotateY(90deg);
+     }
+     @keyframes xuan {
+         100% {
+            transform: rotate3d(1,1,0.3,360deg);  
+         }
+     }
+    section:hover {
+        animation-play-state: paused;
+    }
+</style>
+<body>
+         <section >
+         <div class="z"></div>
+         <div class="b"></div>
+         <div class="s"></div>
+         <div class="x"></div>
+         <div class="zo"></div>
+         <div class="y"></div>
+     </section>
+    
+</body>
+</html>

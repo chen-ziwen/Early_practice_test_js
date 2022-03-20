@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css 圆角</title>
+</head>
+<body> 
+      <style>
+       #radius {
+           position: relative;
+           left: 300px;
+           width: 200px;
+           height: 200px;
+           border-radius: 0px 100px 100px 0px;
+           background-color: cadetblue;
+          
+       }
+       /* .liner {
+           width: 100px;
+           height: 2px;
+        background-color: darkblue;
+           border-top-left-radius: 50px;
+           border-top-right-radius: 50px;
+       } */
+      </style>
+      <script>
+          window.onload = function () {
+            let btn = document.querySelector("button");
+            let rad = document.getElementById("radius");
+            btn.addEventListener("click",()=>{
+             rad.style.display = "none";
+             btn.style.display = "none";
+            },false)
+          }
+      </script>
+
+      <div id="radius" style="background-color:red;">
+      </div>
+
+      <button>点击关闭</button>
+      <div class="liner"></div>
+</body>
+</html>

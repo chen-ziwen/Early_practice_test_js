@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>导航栏</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+        <div class="navbar-header">
+         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#one" aria-expanded="false">
+          <span class="sr-only">你是傻逼</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+         </button>
+         <a class="navbar-brand" href="#">首页</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="one">
+        <ul class="nav navbar-nav">
+        	<li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+
+        	<li><a href="#">Link</a></li>
+        	<li class="dropdown">
+        		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">开设课程 <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+              	<li>
+              		<a href="#">Java程序设计</a>
+              	</li>
+              	<li>
+              		<a href="#">Android应用开发</a>
+              	</li>
+              	<li>
+              		<a href="#">Web前端开发技术</a>
+              	</li>
+              	<li role="separator" class="divider">
+              		
+              	</li>
+              	<li>
+              		<a href="#">中国传统文化</a>
+              	</li>
+              	<li role="separator" class="divider">
+              		
+              	</li>
+              	<li>
+              		<a href="#">体育</a>
+              	</li>
+              </ul>
+        	</li>
+        </ul>
+        <form class="navbar-form navbar-left">
+        <div class="form-group">
+         <input type="text" class="form-control" placeholder="搜索">
+        </div>
+        <button type="submit" class="btn btn-default">提交</button>
+
+        </form>
+
+
+       <ul class="nav navbar-nav navbar-right">
+       	<li><a href="#">Link</a></li>
+       	<li class="dropdown"></li>
+       <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">开设课程 <span class="caret"></span></a>
+       <ul class="dropdown-menu">
+       	<li>
+              		<a href="#">Java程序设计</a>
+              	</li>
+              	<li>
+              		<a href="#">Android应用开发</a>
+              	</li>
+              	<li>
+              		<a href="#">Web前端开发技术</a>
+              	</li>
+              	<li class="divider">
+              		
+              	</li>
+              	<li>
+              		<a href="#">中国传统文化</a>
+              	</li>
+              	<li class="divider">
+              		
+              	</li>
+              	<li>
+              		<a href="#">体育</a>
+              	</li>
+              </ul>
+          </li>
+      </ul>
+        </div>
+		</div>
+	</nav>
+	
+	<script src="js/jquery-1.12.4.js"></script>
+	<script src='js/bootstrap.min.js'></script>
+</body>
+</html>

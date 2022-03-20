@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>属性选择器</title>
+</head>
+<style>
+    /* 属性选择器1 先标签再属性 */
+     p[style] {
+         color: blue;
+     }
+     p[href] {
+         color: brown;
+     }
+     /*属性选择器2 先标签再找属性=属性值*/
+     input[type="text"] {
+         color: deeppink;
+         outline: none;
+     }
+     /*属性选择器3 选择属性值开头的某些元素，符号和正则表达式一致*/
+     /*找出div标签下 class等于以icon开头的某些元素*/
+     div[class^=icon] {
+         color: gold;
+     }
+     /*属性选择器4 选择属性值结尾的某些元素*/
+     div[class$=cn] { 
+         color: gold;
+     }
+     /* 伪类选择器 */
+     div:nth-child(even) {
+         匹配偶数块
+     }
+     div:nth-child(odd) {
+         匹配奇数块
+     }
+     div:nth-child(n) {
+         n是从0开始计算的，n等于1时代表第一个元素，然后一直往下加。
+         2n代表偶数，2n+1代表奇数。
+         5n代表5，10，15。
+         n+5代表从第五个开始,包括第五个。
+         -n+5代表前五个，包括第五个。
+     }
+     li:nth-child(n+2):nth-child(-n+5) {
+
+        表示从第二个开始，第五个结束
+     }
+
+     /* 伪元素选择器，可以用css创建一个新的标签元素，
+     虽然可以创建元素，但是在文档树中找不到，所以叫伪元素选择器 
+     结构永远比样式重要*/
+
+     p::after { /*在p元素内部的后面插入内容，权重与标签选择器一样，都为1*/ 
+       content: ""; /*content属性必须写*/ 
+       display: block;/*创建after盒子属于行内元素，可以转换为块元素*/
+     }
+     p::before {   /*在p元素内部的前面插入内容*/
+       content: "";
+       display: block;
+     }
+     p:hover::after {
+     /*意思就是当鼠标移入p的子元素after时，after内容发生改变，之间不能有空格*/
+         content: "";
+     } 
+</style>
+<body>
+     <p>你好</p>
+     <p style="display: inline-block;">我不好</p>
+     <p href="#">你是一个傻逼</p>
+     <!--  -->
+     <input type="text" name="" id="">
+     <input type="password" name="" id="">
+     <!--  -->
+     <div class="icon1_cn">我很好</div>
+     <div class="icon2_cn">你不好</div>
+     <div class="icon3_cn">你该死</div>
+     <div class="icon4_cn">我该活</div>
+     <div class="icon5_cn">一起死</div>
+</body>
+</html>

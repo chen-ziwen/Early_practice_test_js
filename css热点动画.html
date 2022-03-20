@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css 热点动画</title>
+</head> 
+<style>
+    .back {
+
+        margin: 0 auto;
+        width: 774px;
+        height: 650px;
+        background: no-repeat url(map.png);
+        background-color: rgba(0,0,0,0.6);
+    }
+    .center {
+        position: relative;
+        left: 546px;
+        top: 228px;
+        width: 8px;
+        height: 8px;
+        background-color: cornflowerblue;
+        border-radius: 50%;
+    }
+    .tw {
+        left: 660px;
+        top: 490px;
+    }
+    .gz {
+        left: 545px;
+        top: 526px;
+    }
+    .a1,.a2,.a3 {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        width: 6px;
+        height: 6px;
+        border: 2px solid cornflowerblue;
+        border-radius: 50%;
+        animation: a 1.2s linear infinite;
+    } 
+     .a2 {
+         animation-delay: 0.4s;
+     }
+     .a3 {
+         animation-delay: 0.8s;
+     }
+    @keyframes a {
+        70% {
+            width: 40px;
+            height: 40px;
+            opacity: 1;
+        }
+        100% {
+            width: 70px;
+            height: 70px;
+            opacity: 0;
+        }
+    }
+</style>
+<body>
+    <div class="back">
+     <div class="center">
+        <div class="a1"></div>
+        <div class="a2"></div>
+        <div class="a3"></div>
+     </div>
+     <div class="center tw">
+        <div class="a1"></div>
+        <div class="a2"></div>
+        <div class="a3"></div>
+     </div>
+     <div class="center gz">
+        <div class="a1"></div>
+        <div class="a2"></div>
+        <div class="a3"></div>
+     </div>
+    </div>
+</body>
+</html>
