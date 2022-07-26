@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iterator</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    window.addEventListener('load', () => {
+        let arr = [1, 5, 8, 9, 52, 36, 45, 7454];
+        let arr2 = ['你好', '我爱后', '你是谁'];
+        let a = arr[Symbol.iterator];
+        let b = arr[Symbol.iterator]()
+        // console.dir(a)
+        // console.log('lalal', b)
+        // // console.log('a.next', b.next(), b.next());
+        // for (let i of b) {
+        //     console.log(i);
+        // }
+
+        function createIterator(item) {
+            let i = 0;
+            return {
+                next: () => {
+                    let done = i >= item.length;
+                    let value = !done ? item[i++] : undefined;
+                    return {
+                        value,
+                        done,
+                    }
+                }
+            }
+        }
+
+        // 形成闭包
+        let iterator = createIterator(arr2);
+
+        console.log('iterator', iterator.next());
+        console.log('iterator', iterator.next());
+        console.log('iterator', iterator.next());
+        console.log('iterator', iterator.next());
+
+    })
+    const obj = {
+        hello: '你好',
+        name: '陈子文',
+        age: 22,
+        [Symbol.iterator]() {
+            const len = Object.entries(obj);
+            let i = 0;
+            return {
+                next: () => {
+                    let done = i >= len.length;
+                    let value = !done ? len[i++] : undefined;
+                    return {
+                        done,
+                        value,
+                    }
+                }
+            }
+        }
+    }
+    for (let i of obj) {
+        console.log(i);
+    }
+</script>
+
+</html>
